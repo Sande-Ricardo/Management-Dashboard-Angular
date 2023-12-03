@@ -1,0 +1,18 @@
+
+<div class="container2 display1">
+    <div class="chart c-one     {{display1}}"></div>
+    <div class="chart c-two     {{display2}}"><app-notes></app-notes></div>
+    <div class="chart c-three   {{display3}}"></div>
+    <div class="chart c-four    {{display4}}"></div>
+    <app-clock class="clock     "></app-clock>
+    <div class="control">
+        <div class="logo        bi bi-arrows-angle-expand" (click)="changeExpand()"></div><!-- apertura -->
+        <div class="subcont" *ngIf="expand">
+            <div class="logo    bi bi-card-checklist"></div>
+            <div class="logo    bi bi-card-text"></div>
+            <div class="logo    bi bi-journal-arrow-down"></div>
+            <div class="logo    bi bi-music-note-list"></div>
+        </div>
+    </div>
+</div>
+

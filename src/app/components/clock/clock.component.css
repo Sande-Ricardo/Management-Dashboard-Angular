@@ -1,0 +1,22 @@
+.container14{
+    background-color: var(--primary);
+    /* position: absolute; */
+    width: 10rem;
+    height: 10rem;
+    opacity: .5;
+    right: 1rem;
+    bottom: 1rem;
+
+}
+.clock{
+    background-color: var(--primary);
+    position: absolute;
+    width: 5rem;
+    height: 5rem;
+    left: 2.5rem;
+    border-radius: 50%;
+    border: 1px white solid;
+
+
+
+}

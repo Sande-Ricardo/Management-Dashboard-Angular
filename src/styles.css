@@ -1,1 +1,15 @@
 /* You can add global styles to this file, and also import other style files */
+:root{
+    --primary: #5B5B5B;
+    --secondary: #757575;
+    --third: #5761C6;
+    --fourth: #7C84D4;
+    --fifth: #A2A8E1;
+    --sixth: #e4e7f9;
+
+}
+*{
+    width: 100%;
+    margin:0;
+    padding: 0;
+}
