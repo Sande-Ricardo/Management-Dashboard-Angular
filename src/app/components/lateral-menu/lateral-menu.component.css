@@ -2,7 +2,7 @@
     position: fixed;
     background-color: rgba(40, 40, 40, 0.4); /* Color de fondo con transparencia */
     box-shadow: 0 0 10px rgba(2, 2, 2, 0.79); /* Sombra con transparencia */
-    background-size: cover; 
+    background-size: cover;
     backdrop-filter: blur(5px);
     width: 15rem;
     height: 100%;
@@ -26,7 +26,7 @@
     top: .3rem;
     left: -.15rem;
     font-weight: 700;
-    cursor: pointer;   
+    cursor: pointer;
 }
 
 .dpl {

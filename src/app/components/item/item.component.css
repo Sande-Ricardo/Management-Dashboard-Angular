@@ -1,0 +1,53 @@
+.container311{
+    background-color: aquamarine;
+    width: 95%;
+    margin: 2.5%;
+    min-height: 2rem;
+    position: relative;
+}
+.task{
+    font-weight: 400;
+    font-size: .7rem;
+    border-radius: .5rem;
+    overflow: hidden;
+    padding: .25rem;
+    /* display: grid; */
+    /* grid-template-areas: trace input; */
+    /* grid-template-columns: 2rem auto; */
+    /* gap: 1rem; */
+    /* place-items: center; */
+    
+}
+.format{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.trace{
+    position: absolute;
+    background-color: bisque;
+    border-radius: .75rem;
+    font-size: 1.3rem;
+    font-weight: 700;
+    height: 2rem;
+    width: 2rem;
+    top: .25rem;
+}
+.input{
+    position: relative;
+    background-color: rgba(194, 3, 3, 0.78);
+    border: none;
+    outline: none;
+    height: 1rem;
+    resize: none;
+    max-width: 80%;
+    left: 2rem;
+    margin: .5rem;
+
+    /* padding: 0; */
+    /* width: minmax(2rem,auto); */
+}
+
+.input:focus ~ .trace{
+    background-color: violet;
+}

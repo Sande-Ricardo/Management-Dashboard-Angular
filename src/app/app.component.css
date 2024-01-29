@@ -28,7 +28,10 @@ lateralMenu{
 }
 
 
-@media (max-width:450px){
+@media screen and (max-width:450px){
+    .container0{
+        /* font-size: 30px; */
+    }
     app-background{
         opacity: 0.2;
     }
