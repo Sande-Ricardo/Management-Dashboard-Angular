@@ -13,10 +13,10 @@ export class PrincipalPageComponent implements OnInit {
   }
 
   expand:boolean=false;
-  display:string[]=["displayNone","","displayNone","displayNone"];
+  display:string[]=["","displayNone","displayNone","displayNone"];
 
   changeExpand(){
-    this.expand = !this.expand 
+    this.expand = !this.expand
   };
   changeCard(n:number){
     for(let i = 0; i<4; i++){

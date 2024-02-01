@@ -1,0 +1,31 @@
+.addItem{
+    position: relative;
+    background-color: rgba(190, 190, 190, 0.362);
+    margin: 0 5% 0 5%;
+    height: 1.5rem;
+    width: 90%;
+
+    border-radius: .75rem;
+    box-shadow: 0 0 .2rem .1rem rgb(100, 100, 100);
+
+}
+
+.line{
+    position: absolute;
+    bottom: 0rem;
+    margin: 2.5%;
+    display: block;
+    height: 1px;
+    width: 95%;
+    border: 1px white solid;
+    box-shadow: 0 0 .1rem .01rem white
+                ,inset 0 0 .1rem .01rem white;
+}
+
+.cover{
+    position:relative;
+    border-radius: .75%;
+    width: 100%;
+    height: 100%;
+
+}

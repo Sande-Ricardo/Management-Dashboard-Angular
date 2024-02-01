@@ -3,7 +3,11 @@
     <div class="itmes">
         <!-- agregar inputs binding-->
         
-        <app-item *ngFor="let unit of items, let i = index" [item]="items[i]"></app-item>
-        
+        <app-item *ngFor="let unit of dataSv.items, let i = index" [item]="dataSv.items[i]"></app-item>
+        <div class="addItem">
+            <span class="line"> </span>
+            <!-- <span class="cover" (click)="addItem()"></span> -->
+            <div class="cover" (click)="addItem()"></div>
+        </div>
     </div>
 </div>

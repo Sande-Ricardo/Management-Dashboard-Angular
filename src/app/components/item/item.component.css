@@ -6,11 +6,11 @@
     position: relative;
 }
 .task{
-    font-weight: 400;
-    font-size: .7rem;
-    border-radius: .5rem;
-    overflow: hidden;
-    padding: .25rem;
+    display: flex;
+    align-items: center;
+    
+    /* background-color: antiquewhite; */
+    
     /* display: grid; */
     /* grid-template-areas: trace input; */
     /* grid-template-columns: 2rem auto; */
@@ -25,17 +25,28 @@
 }
 .trace{
     position: absolute;
-    background-color: bisque;
-    border-radius: .75rem;
+    /* background-color: bisque; */
+    border: .2rem white solid;
+    border-radius: 50%;
+    box-shadow: 0 0 .1rem .01rem white
+                ,inset 0 0 .1rem .01rem white;
     font-size: 1.3rem;
     font-weight: 700;
-    height: 2rem;
-    width: 2rem;
-    top: .25rem;
+    height: 2px;
+    width: 2px;
+    box-sizing: 2rem;
+    left: 1rem;
+
+    transition: .3s;
+    
+
+    /* top: .25rem; */
 }
 .input{
+    /* background-color: rgba(194, 3, 3, 0.78); */
+    display: flex;
+    align-items: center;
     position: relative;
-    background-color: rgba(194, 3, 3, 0.78);
     border: none;
     outline: none;
     height: 1rem;
@@ -43,11 +54,18 @@
     max-width: 80%;
     left: 2rem;
     margin: .5rem;
-
+    font-weight: 400;
+    font-size: .8rem;
+    border-radius: .5rem;
+    padding: .25rem;
+    /* overflow: hidden; */
     /* padding: 0; */
     /* width: minmax(2rem,auto); */
 }
 
 .input:focus ~ .trace{
-    background-color: violet;
+    /* background-color: violet; */
+    width: 1.5rem;
+    height: 1.5rem;
+    left: .4rem;
 }

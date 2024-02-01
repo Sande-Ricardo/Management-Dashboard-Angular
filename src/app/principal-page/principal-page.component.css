@@ -10,6 +10,7 @@
     margin-top: 1rem;
     /* grid-template-columns: minmax(10rem,13rem) minmax(20rem,23rem); */
     grid-template-columns: 1fr 2fr;
+    /* grid-template-rows: (minmax(10rem, auto)); */
 }
 .display1{
     grid-template-areas:    'one  two'
@@ -23,6 +24,7 @@
     background-color: rgba(42, 75, 93, 0.435);
     position: relative;
     border: 2px solid black;
+    /* min-width: 10rem; */
 }
 .c-one{
     grid-area: one;
