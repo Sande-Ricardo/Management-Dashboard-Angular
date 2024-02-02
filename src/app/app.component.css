@@ -16,7 +16,8 @@
     right: .5rem;
     top: 6rem;
     width: calc(100% - 16.5rem);
-    height: 42.5rem;
+    height: calc(100% - 9rem);
+    /* height: 85%; */
 }
 .router{
     /* background-color: aqua; */

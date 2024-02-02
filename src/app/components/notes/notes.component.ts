@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DataServiceService } from 'src/app/principal-page/data-service.service';
 
 
 @Component({
@@ -8,7 +9,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NotesComponent implements OnInit {
 
-  constructor() { }
+  constructor( public dataSv:DataServiceService) { }
 
   ngOnInit(): void {
   }
@@ -21,24 +22,25 @@ export class NotesComponent implements OnInit {
     constructor(tittle:string, content:string){
       this.tittle.push(tittle);
       this.content.push(content);
-
     }
   };
   
-  dark:string=""
+  // dark:string=""
   
   changeNote(i:number){
     this.indx=i
   };
 
   add(){
-    this.notes.constructor("Tittle","");
+    this.dataSv.addNote();
     this.indx = (this.notes.tittle.length-1);
-    console.log(this.indx)
+    // this.notes.constructor("Tittle","");
+    // console.log(this.indx)
   };
   pop(i:number){
-    this.notes.tittle.splice(this.indx,1)
-    this.notes.content.splice(this.indx,1)
+    this.dataSv.delNote(i)
+    // this.notes.tittle.splice(i,1)
+    // this.notes.content.splice(i,1)
 
   }
 

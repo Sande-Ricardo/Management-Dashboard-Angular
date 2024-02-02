@@ -12,18 +12,30 @@ export class PrincipalPageComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  displayN:string="display1"
   expand:boolean=false;
-  display:string[]=["","displayNone","displayNone","displayNone"];
+  display:string[]=["","","",""];
+  displayM:string[]=["","displayNoneM","displayNoneM","displayNoneM"];
+
+
 
   changeExpand(){
     this.expand = !this.expand
   };
-  changeCard(n:number){
-    for(let i = 0; i<4; i++){
-      this.display[i] = "displayNone";
-    };
-    this.display[n] = ""
+  
+  changeDisplay(n:number){
+    this.displayN = "display"+n;
+    console.log(this.displayN)
   }
+
+  changeCard(n:number){
+    this.display = ["displayNone","displayNone","displayNone","displayNone"]
+    this.display[n] = "";
+  };
+  changeCardM(n:number){
+    this.display = ["displayNoneM","displayNoneM","displayNoneM","displayNoneM"]
+    this.displayM[n] = ""
+};
   
 
 }

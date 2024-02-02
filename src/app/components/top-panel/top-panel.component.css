@@ -3,7 +3,7 @@
     position:fixed;
     left: 16rem;
     top: 0;
-    width: calc(100%-15rem);
+    width: calc(100% - 15rem);
     height: 4.5rem;
     border-radius: 1.5rem 0 0 1.5rem;
     box-shadow: 0 0 .7rem rgba(2, 2, 2, 0.79); 

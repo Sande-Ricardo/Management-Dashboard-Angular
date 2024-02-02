@@ -1,13 +1,28 @@
+/* estructurar container y head */
+
+.head{
+    display: flexbox;
+    position: relative;
+    background-color: blue;
+    width: 90%;
+    height: 2rem;
+    justify-self: end;
+}
+
 .addItem{
     position: relative;
-    background-color: rgba(190, 190, 190, 0.362);
+    background-color: var(--fifth);
     margin: 0 5% 0 5%;
     height: 1.5rem;
     width: 90%;
+    opacity: .7;
 
     border-radius: .75rem;
-    box-shadow: 0 0 .2rem .1rem rgb(100, 100, 100);
+    box-shadow: 0 0 .2rem .1rem var(--fifth);
 
+}
+.addItem:hover{
+    opacity: 1;
 }
 
 .line{
@@ -17,9 +32,9 @@
     display: block;
     height: 1px;
     width: 95%;
-    border: 1px white solid;
-    box-shadow: 0 0 .1rem .01rem white
-                ,inset 0 0 .1rem .01rem white;
+    border: 1px var(--sixth) solid;
+    box-shadow: 0 0 .1rem .01rem var(--sixth)
+                ,inset 0 0 .1rem .01rem var(--sixth);
 }
 
 .cover{

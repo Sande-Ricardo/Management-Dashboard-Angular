@@ -1,5 +1,5 @@
 .container311{
-    background-color: aquamarine;
+    /* background-color: aquamarine; */
     width: 95%;
     margin: 2.5%;
     min-height: 2rem;
@@ -43,7 +43,7 @@
     /* top: .25rem; */
 }
 .input{
-    /* background-color: rgba(194, 3, 3, 0.78); */
+    background-color: var(--sixth);
     display: flex;
     align-items: center;
     position: relative;
@@ -58,7 +58,7 @@
     font-size: .8rem;
     border-radius: .5rem;
     padding: .25rem;
-    /* overflow: hidden; */
+    overflow: hidden;
     /* padding: 0; */
     /* width: minmax(2rem,auto); */
 }
