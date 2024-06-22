@@ -1,0 +1,74 @@
+/* .container{
+    background-color: red;
+    position: relative;
+    display: grid;
+    width: 100%;
+    min-height: 100%;
+    flex-grow: 1;
+} */
+
+.container{
+    width: 100%;
+    height: calc(100vh - 3.5rem);
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    /* background-color: aquamarine; */
+    position: relative;
+
+    /* top:6rem; */
+}
+.cont1{
+    height: 40rem;
+    width: 20rem;
+    /* border: rgb(163, 163, 163) solid; */
+    border-radius: 2rem;
+    box-shadow: 4rem -4rem 4rem 1rem rgb(204, 203, 203) inset;
+    /* background-color: red; */
+
+    display: flex;
+    flex-direction: column;
+    /* gap: 16px; */
+    justify-content: center;
+}
+.one{
+    display: flex;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.025);
+    border-radius: 3rem;
+    box-shadow: 0rem 0rem 3rem 1rem rgba(0, 0, 0, 0.352);
+}
+.ttl{
+    font-size: 2.6rem;
+    font-weight: bold;
+    position: relative;
+    left: 5rem;
+    margin-bottom: 3rem;
+}
+.two{
+    min-width: 13rem;
+    height: 1.6rem;
+    text-align: end;
+    position: relative;
+    right: -3rem;
+}
+.unit1{
+    height: 3rem;
+    width: 19rem;
+    /* background-color: beige; */
+    margin: 1rem .4rem 1rem .4rem;
+    border-radius: .4rem;
+}
+.subun1{
+    background-color:rgba(1, 1, 1, 0);
+    display: flex;
+    justify-content: center;
+    margin: -.2rem 0 -2.8rem 0;
+}
+.sub1{
+    margin: -1rem 5.5rem 0rem 5.5rem ;
+    font-size: .9rem;
+    color: rgb(61, 61, 61);
+    /* margin-right: 2rem;
+    margin-left: 2rem; */
+}

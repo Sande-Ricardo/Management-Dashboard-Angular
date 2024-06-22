@@ -1,13 +1,13 @@
-import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { NgModule } from '@angular/core';
 
-import { CommonVRoutingModule } from './common-v-routing.module';
-import { PrincipalPageComponent } from '../principal-page/principal-page.component';
+import { FormsModule } from '@angular/forms';
+import { ItemComponent } from '../components/item/item.component';
 import { ListItemsComponent } from '../components/list-items/list-items.component';
 import { NotesComponent } from '../components/notes/notes.component';
-import { ItemComponent } from '../components/item/item.component';
-import { FormsModule } from '@angular/forms';
-import { CommonViewComponent } from './common-view/common-view.component';
+import { PrincipalPageComponent } from '../principal-page/principal-page.component';
+import { CommonVRoutingModule } from './common-v-routing.module';
+import { CommonViewComponent } from './common-view.component';
 
 import { BackgroundComponent } from '../components/background/background.component';
 import { ClockComponent } from '../components/clock/clock.component';
@@ -30,6 +30,9 @@ import { TopPanelComponent } from '../components/top-panel/top-panel.component';
     CommonModule,
     CommonVRoutingModule,
     FormsModule
+  ],
+  exports:[
+    CommonViewComponent
   ]
 })
 export class CommonVModule { }

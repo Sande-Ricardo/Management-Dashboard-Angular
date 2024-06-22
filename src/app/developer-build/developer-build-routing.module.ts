@@ -1,10 +1,13 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { LoginComponent } from '../login/login.component';
 import { TestingEnvironmentComponent } from './testing-environment/testing-environment.component';
 
 const routes: Routes = [
   {
-    path:'developer_build', component:TestingEnvironmentComponent
+    path:'', component:TestingEnvironmentComponent, children:[
+      {path:'login', component: LoginComponent}
+    ]
   }
 ];
 
