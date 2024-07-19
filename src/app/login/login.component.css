@@ -9,11 +9,11 @@
 
 .container{
     width: 100%;
-    height: calc(100vh - 3.5rem);
+    height: 100vh;
     display: grid;
     justify-content: center;
     align-items: center;
-    /* background-color: aquamarine; */
+    background-color: var(--seventh);
     position: relative;
 
     /* top:6rem; */

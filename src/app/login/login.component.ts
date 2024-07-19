@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { Observable } from 'rxjs';
+import { User } from '../model/User';
 import { LoginService } from './login.service';
 
 @Component({
@@ -9,44 +11,60 @@ import { LoginService } from './login.service';
 })
 export class LoginComponent implements OnInit {
 
-  constructor( private loginSv:LoginService ) { }
+  constructor( private loginSv:LoginService ) {
+    this.login$ = loginSv.observableLogin;
+    this.user$ = loginSv.observableUser
+  }
 
   ngOnInit(): void {
   }
 
 
 
-
   conditional1:boolean = true;
   signU_I:string = "Don't have an account yet?";
 
-  usrn1:any = "";
-  gml1:any = "";
-  ctr1:any = "";
+  // ------------------------- Observables ---------------------------------  usarlos para obtener la información de usuario y para identificar el estado de login (respectiamente)
+  user$:Observable<User>;
+  login$:Observable<boolean>
+  // -----------------------------------------------------------------------
+
+
+  usrn1:any;
+  eml1:any;
+  ctr1:any;
   
 
 
-  
   signUpIn(){
+    // para cambiar el condicional de formato login/up
     this.conditional1 = !this.conditional1;
     // window.location.reload();
   };
+
+
   
-  
-  // login(form:NgForm){
-  //   const email=form.value.email;
-  //   const password=form.value.password;
-  //   this.loginSv.login(email,password);
-  // };
+  // Create
   
   register(form:NgForm){
-    this.conditional1 = !this.conditional1;
-    const email=form.value.email;
-    const password=form.value.password;
-    const username=form.value.username;
-    console.log("Registrado con email '" + email + "' existosamente.");
-    this.loginSv.register(email, password, username);
+    const user = new User(
+      form.value.username,
+      form.value.email,
+      form.value.password,
+    );
+    this.loginSv.register(user);
+    this.signUpIn()
   };
-
+  
+  
+  // Read
+    
+    login(form:NgForm){
+      const email=form.value.email;
+      const password=form.value.password;
+      this.loginSv.login(email,password);
+    };
+  
+  
 
 }
