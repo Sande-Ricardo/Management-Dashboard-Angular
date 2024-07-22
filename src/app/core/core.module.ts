@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
-import { LoginService } from '../login/login.service';
+import { LoginService } from './services/login.service';
 
 
 
