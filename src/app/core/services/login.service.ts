@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
 import { BehaviorSubject } from 'rxjs';
 import { User } from '../model/User';
 
@@ -8,9 +9,13 @@ import { User } from '../model/User';
 })
 export class LoginService {
 
-  constructor( private http:HttpClient ){}
+  constructor( 
+    private http:HttpClient,
+    private router:Router
+  ){  }
 
 
+  
   user!: User;
   // seguramente estos campos salgan de la DDBB
   name:string = "";
@@ -20,7 +25,7 @@ export class LoginService {
 
 
 
-  // --------------------------- Observable Login-------------------------------
+  // --------------------------- Observable Login ------------------------------
   private observableLoginPrivate:BehaviorSubject<boolean> =
     new BehaviorSubject<boolean>(false);
 
@@ -38,6 +43,16 @@ export class LoginService {
   // ---------------------------------------------------------------------------
 
 
+  // ------------------------------ redirect -----------------------------------
+  redirect (){
+    if(this.observableLogin){
+      this.router.navigate(['/home']);
+    }
+  }
+
+  // ---------------------------------------------------------------------------
+
+  
 
   register(usr:User){
     this.http.post(this.urlUser + '/set', usr).subscribe(
@@ -47,8 +62,20 @@ export class LoginService {
   }
 
   login(email:string, password:string){
-    this.http.get(this.urlUser + '/email/' + email).subscribe(data => {
-      console.log(data);
+
+    
+    
+    this.http.get(this.urlUser + '/login/' + email + '/' + password).subscribe(data => {
+      if(data == null){
+        console.error("error!");
+      } else {
+        console.log(data);
+        this.observableUserData = data as User;
+        this.observableLoginBool = true as boolean;
+
+        this.redirect();
+        // console.log("posterior: " + this.observableUser)
+      }
     })
   }
   
