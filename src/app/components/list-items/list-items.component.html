@@ -4,7 +4,8 @@
     <div class="items">
         <!-- agregar inputs binding-->
         
-        <app-item *ngFor="let unit of dataSv.items, let i = index" [item]="dataSv.items[i]"></app-item>
+        <!-- <app-item *ngFor="let unit of dataSv.items, let i = index" [item]="dataSv.items[i]"></app-item> -->
+        <app-item *ngFor="let task of headlines[0].tasks, let i = index" [subttl]="task.content"></app-item>
         <div class="addItem">
             <span class="line"> </span>
             <!-- <span class="cover" (click)="addItem()"></span> -->

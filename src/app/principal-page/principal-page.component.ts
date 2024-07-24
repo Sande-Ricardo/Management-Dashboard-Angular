@@ -1,4 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
+import { LoginService } from '../core/services/login.service';
+import { Headline } from '../model/Headline';
+import { Task } from '../model/Task';
+import { User } from '../model/User';
 
 @Component({
   selector: 'app-principal-page',
@@ -7,8 +12,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PrincipalPageComponent implements OnInit {
 
-  constructor() { }
+  constructor( private loginSv:LoginService ) {
+    this.user$ = loginSv.observableUser;
+    this.user$.subscribe(data =>{
+      console.log (data);
+      // para definir las headlines
+      this.headlines = data.headlines;
+      // para definir las tasks (REVISAR) (queda feo)
+      this.tasks = this.headlines[0].tasks as unknown as Task[];
+      this.taskTittles = this.tasks.forEach((tittle) => tittle.content) as unknown as string[]
+    } );
+    
+  }
 
+  user$:Observable<User>
+  
   ngOnInit(): void {
   }
 
@@ -16,6 +34,13 @@ export class PrincipalPageComponent implements OnInit {
   expand:boolean=false;
   display:string[]=["","","",""];
   displayM:string[]=["","displayNoneM","displayNoneM","displayNoneM"];
+
+
+  headlines!:Headline[];
+  tasks!:Task[];
+  taskTittles!:string[];
+
+  
 
 
 

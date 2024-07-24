@@ -1,14 +1,19 @@
 
 export class Extension{
     id!:number;
-    content:string;
     tittle!:string;
+    
+    content:string;
+
     id_task!:number;
 
 
 
 
-    constructor (cont:string){
+    constructor (cont:string, id?:number,tittle?:string){
         this.content=cont
+
+        if(id){this.id=id};
+        if(tittle){this.tittle=tittle}
     }
 }

@@ -1,6 +1,7 @@
 <div class="container">
     <div class="cont1" *ngIf="conditional1">
-        <h2 class="ttl" >Sign In</h2>
+        <h2 class="ttl" (click)="loginStatus()">Sign In</h2>
+        <p>{{(login$ | async)}}</p>
         <!-- <h2 class="ttl" *ngIf="!conditional1">Sign Up</h2> -->
         <form class="cont2" #log="ngForm" (ngSubmit)="login(log)">
             <div><input class="unit1" type="text" name="email"      placeholder=" Email"    [(ngModel)]="usrn1"  ></div>

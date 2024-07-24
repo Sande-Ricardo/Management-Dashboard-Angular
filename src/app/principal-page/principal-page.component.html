@@ -1,7 +1,7 @@
 
 <div class="container2 {{displayN}}"><!-- acá debería ser por binding el display -->
     <div class="chart c-one     {{displayM[0]}} {{display[0]}}">
-        <app-list-items></app-list-items>
+        <app-list-items  [headlines]="headlines" ></app-list-items>
     </div>
     <div class="chart c-two     {{displayM[1]}} {{display[1]}}">
         <app-notes></app-notes>

@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { Headline } from 'src/app/model/Headline';
 import { DataServiceService } from 'src/app/principal-page/data-service.service';
 
 @Component({
@@ -8,12 +9,15 @@ import { DataServiceService } from 'src/app/principal-page/data-service.service'
 })
 export class ListItemsComponent implements OnInit {
 
-  constructor( public dataSv:DataServiceService) {
-    
+  // @Input() task!:string[];
+  @Input() headlines!:Headline[];
+
+  constructor( public dataSv:DataServiceService) {  
   }
 
   ngOnInit(): void {
   }
+
 
   addItem(){
     this.dataSv.addItem();

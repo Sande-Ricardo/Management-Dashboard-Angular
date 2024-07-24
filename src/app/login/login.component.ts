@@ -17,6 +17,9 @@ export class LoginComponent implements OnInit {
   }
 
   ngOnInit(): void {
+
+    // this.user$.subscribe(data => console.log(data))
+    
   }
 
 
@@ -28,6 +31,7 @@ export class LoginComponent implements OnInit {
   user$:Observable<User>;
   login$:Observable<boolean>
   // -----------------------------------------------------------------------
+  log:boolean = false;
 
 
   usrn1:any;
@@ -64,7 +68,13 @@ export class LoginComponent implements OnInit {
       const password=form.value.password;
       this.loginSv.login(email,password);
     };
-  
+
+    
+
+    loginStatus(){
+      this.login$.subscribe(data => console.log(data));
+      this.user$.subscribe(data => console.log(data));
+    }
   
 
 }

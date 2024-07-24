@@ -7,7 +7,7 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class ItemComponent implements OnInit {
 
-  @Input() item!:string;
+  @Input() subttl!:string;
   constructor() { }
 
   ngOnInit(): void {
