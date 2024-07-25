@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
+import { CookieService } from 'ngx-cookie-service';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { Extension } from 'src/app/model/Extension';
 import { Headline } from 'src/app/model/Headline';
@@ -14,23 +15,21 @@ export class LoginService {
 
   constructor( 
     private http:HttpClient,
-    private router:Router
+    private router:Router,
+    private cookieSv:CookieService
   ){
     // console.log("este", this.userEx);
     this.user$ = this.observableUser;
+
+    // para agregar la información a una cookie es necesario que el formato sea texto, es decir que debería hacer una reconversión de entrada y salida. Mejor opción: LocalStorage
+    this.observableUser.subscribe(data => {
+      // this.cookieSv.set("user", data)
+    })
   }
 
 
   
-  userEx1:User = {
-    id:0,
-    name:"",
-    last_name:"",
-    username:"",
-    email:"",
-    password:"",
-    headlines:[]
-  };
+  userEx1:User = {id:0,name:"",last_name:"",username:"",email:"",password:"",headlines:[]};
 
   userEx:User = new User("ric", "1@gmail.com", "qwerty", 0, "Ricardo", "Sande", [
     new Headline("N1 nada todavía", 0, [
@@ -41,6 +40,7 @@ export class LoginService {
   ])
   // user!: User;
   user$:Observable<User>;
+  
   // seguramente estos campos salgan de la DDBB
   // name:string = "";
   // lastName:string = "";
