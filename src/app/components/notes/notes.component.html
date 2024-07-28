@@ -1,15 +1,20 @@
 <div class="container221">
     <div class="flanges">
-        <div class="tittle {{i}}" *ngFor="let note of dataSv.notes.tittle, let i = index" (click)="changeNote(i)" [ngStyle]="{'opacity': indx == i ? 1 : .7}">
-            <span class="pst"  >{{dataSv.notes.tittle[i]}}</span>
-            <!-- <div class="block" (dblclick)="pop(i)"></div> -->
+        <!-- <div class="tittle {{i}}" *ngFor="let note of dataSv.notes.tittle, let i = index" (click)="changeNote(i)" [ngStyle]="{'opacity': indx == i ? 1 : .7}"> -->
+        <!-- <div class="tittle {{i}}" *ngFor="let note of dataSv.notes.tittle, let i = index" (click)="changeNote(i)" [ngStyle]="{'opacity': indx == i ? 1 : .7}"> -->
+        <div class="tittle {{i}}" *ngFor="let task of mock.headlines[0].tasks , let i = index" (click)="changeNote(i)" [ngStyle]="{'opacity': indx == i ? 1 : .7}">
+            <span class="pst"  >{{mock.headlines[0].tasks[i].content}}</span>
+            <!-- <span class="pst"  >{{dataSv.notes.tittle[i]}}</span> -->
             <div class="pop" (click)="pop(i)"></div>
+            <!-- <div class="block" (dblclick)="pop(i)"></div> -->
             <!-- {{notes.tittle[i]}} -->
         </div>
     </div>
     <div class="content">
-        <input class="tittleEdit" [(ngModel)]="dataSv.notes.tittle[indx]">
-        <textarea class="note" [(ngModel)]="dataSv.notes.content[indx]" ></textarea>
+        <!-- <input class="tittleEdit" [(ngModel)]="dataSv.notes.tittle[indx]"> -->
+        <input class="tittleEdit" [(ngModel)]="mock.headlines[0].tasks[indx].content">
+        <!-- <textarea class="note" [(ngModel)]="dataSv.notes.content[indx]" ></textarea> -->
+        <textarea class="note" [(ngModel)]="mock.headlines[0].tasks[indx].extension.content" ></textarea>
     </div>
     <div class="add" (click)="add()"><p>+</p></div>
 </div>

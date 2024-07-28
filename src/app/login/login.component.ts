@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Observable } from 'rxjs';
+import { LocalStorageService } from '../core/services/local-storage.service';
 import { LoginService } from '../core/services/login.service';
 import { User } from '../model/User';
 
@@ -11,7 +12,9 @@ import { User } from '../model/User';
 })
 export class LoginComponent implements OnInit {
 
-  constructor( private loginSv:LoginService ) {
+  constructor( private loginSv:LoginService,
+    private localStorageSv:LocalStorageService
+  ) {
     this.login$ = loginSv.observableLogin;
     this.user$ = loginSv.observableUser
   }
@@ -74,6 +77,7 @@ export class LoginComponent implements OnInit {
     loginStatus(){
       this.login$.subscribe(data => console.log(data));
       this.user$.subscribe(data => console.log(data));
+      console.log(this.localStorageSv.getUser)
     }
   
 

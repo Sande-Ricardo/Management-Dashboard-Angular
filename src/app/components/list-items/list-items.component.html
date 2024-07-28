@@ -5,7 +5,11 @@
         <!-- agregar inputs binding-->
         
         <!-- <app-item *ngFor="let unit of dataSv.items, let i = index" [item]="dataSv.items[i]"></app-item> -->
-        <app-item *ngFor="let task of headlines[0].tasks, let i = index" [subttl]="task.content"></app-item>
+        <!-- <app-item *ngFor="let task of headlines[0].tasks, let i = index" [subttl]="task.content"></app-item> -->
+        
+        <!-- <app-item *ngFor="let task of user.headlines[1]?.tasks, let i = index" [subttl]="task.content"></app-item> -->
+        
+        <app-item *ngFor="let task of mock.headlines[0].tasks, let i = index" [subttl]="task.content"></app-item>
         <div class="addItem">
             <span class="line"> </span>
             <!-- <span class="cover" (click)="addItem()"></span> -->
@@ -14,4 +18,5 @@
     </div>
     <!-- Para agregar efecto fade al final del bloque -->
     <span class="fade"></span>
+    <!-- <p (click)="test1()">localStorage</p> -->
 </div>

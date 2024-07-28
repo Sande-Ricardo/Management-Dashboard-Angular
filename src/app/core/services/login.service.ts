@@ -1,7 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-import { CookieService } from 'ngx-cookie-service';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { Extension } from 'src/app/model/Extension';
 import { Headline } from 'src/app/model/Headline';
@@ -13,22 +12,23 @@ import { User } from 'src/app/model/User';
 })
 export class LoginService {
 
-  constructor( 
+  constructor(
     private http:HttpClient,
     private router:Router,
-    private cookieSv:CookieService
+
   ){
-    // console.log("este", this.userEx);
     this.user$ = this.observableUser;
 
-    // para agregar la información a una cookie es necesario que el formato sea texto, es decir que debería hacer una reconversión de entrada y salida. Mejor opción: LocalStorage
-    this.observableUser.subscribe(data => {
-      // this.cookieSv.set("user", data)
-    })
+    console.log("UserData: ")
+    this.user$.subscribe(data => console.log(data))
+    console.log("LoginStatus: ")
+    this.observableLogin.subscribe(data => console.log(data))
+
   }
 
 
-  
+
+  // ------------------------------ Variables ----------------------------------
   userEx1:User = {id:0,name:"",last_name:"",username:"",email:"",password:"",headlines:[]};
 
   userEx:User = new User("ric", "1@gmail.com", "qwerty", 0, "Ricardo", "Sande", [
@@ -38,17 +38,17 @@ export class LoginService {
     ]),
     new Headline("N2 nada todavía")
   ])
-  // user!: User;
+
   user$:Observable<User>;
   
+  // user!: User;
   // seguramente estos campos salgan de la DDBB
   // name:string = "";
   // lastName:string = "";
 
-
+  
   // --------------------------------- Url -------------------------------------
   private urlUser = 'http://localhost:8080/user'
-
 
 
   // ----------------------- Observable LoginStatus ---------------------------
@@ -99,7 +99,8 @@ export class LoginService {
         this.userEx = data as User;
 
         // this.redirect();
-        console.log("posterior: ", this.observableUser.subscribe(data => {return data}))
+        console.log("posterior: ", data)
+        // console.log("posterior: ", this.user$.subscribe(data => {return data}))
       }
     })
   }
