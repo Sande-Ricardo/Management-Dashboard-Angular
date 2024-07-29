@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { LocalStorageService } from 'src/app/core/services/local-storage.service';
 
 @Component({
   selector: 'app-top-panel',
@@ -7,9 +8,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TopPanelComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private localSorageSv:LocalStorageService
+  ) { }
 
   ngOnInit(): void {
   }
 
+
+  logout(){
+    this.localSorageSv.setLogin = false;
+    this.localSorageSv.setUser = this.localSorageSv.userEx;
+    window.location.reload();
+  };
 }

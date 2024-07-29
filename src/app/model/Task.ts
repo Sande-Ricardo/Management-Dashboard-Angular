@@ -8,7 +8,7 @@ export class Task{
 
     extension!:Extension;
 
-    constructor (cont:string, id?:number, extension?:Extension){
+    constructor (cont:string, extension?:Extension, id?:number){
         this.content = cont
 
         if(id){this.id=id};

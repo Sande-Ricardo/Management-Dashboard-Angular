@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
-import { LoginService } from '../core/services/login.service';
+import { Router } from '@angular/router';
+import { LocalStorageService } from '../core/services/local-storage.service';
 import { Headline } from '../model/Headline';
 import { Task } from '../model/Task';
 import { User } from '../model/User';
@@ -12,34 +12,52 @@ import { User } from '../model/User';
 })
 export class PrincipalPageComponent implements OnInit {
 
-  constructor( private loginSv:LoginService ) {
-    this.user$ = loginSv.observableUser;
-    this.user$.subscribe(data =>{
-      console.log (data);
-      // para definir las headlines
-      this.headlines = data.headlines;
-      // para definir las tasks (REVISAR) (queda feo)
-      this.tasks = this.headlines[0].tasks as unknown as Task[];
-      this.taskTittles = this.tasks.forEach((tittle) => tittle.content) as unknown as string[]
-    } );
-    
-  }
+// Para la versión 0.0.17 se deja de utilizar observables luego del local storage
 
-  user$:Observable<User>
+  constructor(
+    // private loginSv:LoginService,
+    private router:Router,
+    private localStorageSv:LocalStorageService
+  ) {
+    // this.user$ = loginSv.observableUser;
+    // this.user$.subscribe(data =>{
+      // para definir las headlines
+      // this.headlines = data.headlines;
+      // para definir las tasks (REVISAR) (queda feo)
+      // this.tasks = this.headlines[0].tasks as unknown as Task[];
+      // this.taskTittles = this.tasks.forEach((tittle) => tittle.content) as unknown as string[]
+    // } );
+
+    this.user=localStorageSv.getUser
+    this.headlines=this.user.headlines
+    
+    if (!this.localStorageSv.getLogin){
+      this.redirect(this.urlLogin)
+    }
+
+  }
   
   ngOnInit(): void {
   }
+  
+  // user$:Observable<User>
 
+  // --------------------------------- Url -------------------------------------
+  private urlLogin = '/login';
+
+  // ------------------------------ Variables ----------------------------------
   displayN:string="display1"
   expand:boolean=false;
   display:string[]=["","","",""];
   displayM:string[]=["","displayNoneM","displayNoneM","displayNoneM"];
-
-
+  
+  
+  user!:User;
   headlines!:Headline[];
   tasks!:Task[];
   taskTittles!:string[];
-
+  // ---------------------------------------------------------------------------
+  
   
 
 
@@ -60,7 +78,11 @@ export class PrincipalPageComponent implements OnInit {
   changeCardM(n:number){
     this.display = ["displayNoneM","displayNoneM","displayNoneM","displayNoneM"]
     this.displayM[n] = ""
-};
+  };
   
+  redirect(path:string){
+    this.router.navigate([path])
+  }
+
 
 }
