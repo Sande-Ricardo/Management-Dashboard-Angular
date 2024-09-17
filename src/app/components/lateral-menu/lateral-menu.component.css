@@ -1,4 +1,5 @@
-.container12{
+.container12
+{
     position: fixed;
     background-color: rgba(40, 40, 40, 0.4); /* Color de fondo con transparencia */
     box-shadow: 0 0 10px rgba(2, 2, 2, 0.79); /* Sombra con transparencia */
@@ -8,7 +9,8 @@
     height: 100%;
     transition: .2s;
 }
-.activate{
+.activate
+{
     background-image: linear-gradient(to right, var(--primary), rgba(0,0,0,.01));
     border-radius: 0 50% 50% 0;
     height: 2rem;
@@ -19,7 +21,8 @@
     display: none;
     transition: .2s;
 }
-.activate p{
+.activate p
+{
     transform: scale(.5, 2);
     color: var(--fourth);
     position: relative;
@@ -28,6 +31,8 @@
     font-weight: 700;
     cursor: pointer;
 }
+
+
 
 .dpl {
     right: 0rem;

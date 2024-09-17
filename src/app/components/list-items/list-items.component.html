@@ -8,7 +8,7 @@
         <!-- <app-item *ngFor="let task of headlines[0].tasks, let i = index" [subttl]="task.content"></app-item> -->
         <!-- <app-item *ngFor="let task of mock.headlines[0].tasks, let i = index" [subttl]="task.content"></app-item> -->
         
-        <app-item *ngFor="let task of headlines[headI]?.tasks, let i = index" [subttl]="task.content" (click)="taskIndx(i)"></app-item>
+        <app-item *ngFor="let task of headlines[localStorageSv.headlineIndx]?.tasks, let i = index" [subttl]="task.content" (click)="taskIndx(i)"></app-item>
         
         <div class="addItem">
             <span class="line"> </span>

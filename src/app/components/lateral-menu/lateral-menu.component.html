@@ -1,4 +1,9 @@
-<div class="container12 {{active1}}">
-    <!-- dejar de último (es para mediaqueries) -->
-    <span class="activate {{active2}}"  (click)="activate()"><p>>></p></span>
+<div class="container12" [ngClass]="active1">
+        <!-- dejar de último (es para mediaqueries) -->
+        <span class="activate" [ngClass]="active2" (click)="activate()"><p>>></p></span>
+        
+        <ul>
+                <li (click)="showHeadlines()">show headlines</li>
+                <li *ngFor="let headline of headlines, let i = index" (click)="setHeadlineI(i)" >{{headline.content}}</li>
+        </ul>
 </div>

@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { LocalStorageService } from 'src/app/core/services/local-storage.service';
 import { Headline } from 'src/app/model/Headline';
 import { DataServiceService } from 'src/app/principal-page/data-service.service';
@@ -11,12 +11,22 @@ import { DataServiceService } from 'src/app/principal-page/data-service.service'
 })
 export class NotesComponent implements OnInit {
 
-  @Input() headlines!:Headline[];
+  // @Input() headlines!:Headline[];
 
-  constructor( public dataSv:DataServiceService, private localStorageSv:LocalStorageService) { }
+  constructor(
+    public dataSv:DataServiceService,
+    public localStorageSv:LocalStorageService) { 
+      this.headlines = localStorageSv.getUser.headlines
+    }
 
   ngOnInit(): void {
+    console.log(this.headlines);
+    // console.log(this.headlines[2].tasks[0].content);
   }
+
+  // --------------------------------------  Variables  --------------------------------------------
+
+  headlines!:Headline[];
 
   indx:number=0;
   notes:any={
@@ -28,25 +38,39 @@ export class NotesComponent implements OnInit {
       this.content.push(content);
     }
   };
+  // Headline index
+  headI:number=0
   
   // dark:string=""
-  
+
+
+  // ---------------------------------------  Methods  ---------------------------------------------
+
   changeNote(i:number){
     this.indx=i
   };
 
   add(){
-    this.dataSv.addNote();
-    this.indx = (this.notes.tittle.length-1);
-    // this.notes.constructor("Tittle","");
-    // console.log(this.indx)
+    this.localStorageSv.addTask();
+    this.headlines = this.localStorageSv.getUser.headlines;
+    console.log(this.localStorageSv.getUser);
+    // this.indx = (this.notes.tittle.length-1);
+    this.indx = this.headlines[this.localStorageSv.headlineIndx].tasks.length - 1
   };
   pop(i:number){
-    this.dataSv.delNote(i)
+    // this.dataSv.delNote(i)
     // this.notes.tittle.splice(i,1)
     // this.notes.content.splice(i,1)
-
+    this.localStorageSv.delTask(i)
+    this.headlines = this.localStorageSv.getUser.headlines;
+    this.indx = 0
   }
+
+
+  // -------------------------------------  Observables  -------------------------------------------
+  // -----------------------------------------------------------------------------------------------
+
+  
 
 
     // ----------------------------  Mock  ----------------------------------------

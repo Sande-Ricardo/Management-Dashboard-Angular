@@ -3,13 +3,21 @@
     /* background-color: rgb(255, 145, 0); */
     background-image: linear-gradient(to bottom, var(--secondary), var(--third));
     position: absolute;
-    width: 100%;
-    height: 100%;
+    width: 100vw;
+    height: 100vh;
     margin: 0;
-    padding: 0; 
+    padding: 0;
     /* left: -.5rem;
     top:-.5rem; */
+
+    /* border: 1rem blue solid; */
 }
+
+.container0 > *
+{
+    /* border: 2px violet solid; */
+}
+
 .principal{
     /* background-color: white; */
     position: fixed;
@@ -18,23 +26,14 @@
     width: calc(100% - 16.5rem);
     height: calc(100% - 9rem);
     /* height: 85%; */
-}
-.router{
-    /* background-color: aqua; */
-    position: relative;
-}
-lateralMenu{
-    position:absolute;
-    left: -4rem;
+
+    /* border: red solid 1px; */
 }
 
 
 @media screen and (max-width:450px){
     .container0{
         /* font-size: 30px; */
-    }
-    app-background{
-        opacity: 0.2;
     }
     .principal{
         /* position: absolute; */

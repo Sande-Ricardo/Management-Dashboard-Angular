@@ -3,8 +3,11 @@
         <!-- <div class="tittle {{i}}" *ngFor="let note of dataSv.notes.tittle, let i = index" (click)="changeNote(i)" [ngStyle]="{'opacity': indx == i ? 1 : .7}"> -->
         <!-- <div class="tittle {{i}}" *ngFor="let note of dataSv.notes.tittle, let i = index" (click)="changeNote(i)" [ngStyle]="{'opacity': indx == i ? 1 : .7}"> -->
                 
-            <div class="tittle {{i}}" *ngFor="let task of headlines[1].tasks , let i = index" (click)="changeNote(i)" [ngStyle]="{'opacity': indx == i ? 1 : .7}">
-            <span class="pst"  >{{headlines[1].tasks[i].content}}</span>
+            
+        <div class="tittle {{i}}" *ngFor="let task of headlines[localStorageSv.headlineIndx].tasks , let i = index" (click)="changeNote(i)" [ngStyle]="{'opacity': indx == i ? 1 : .7}">
+            <span class="pst"  >{{headlines[localStorageSv.headlineIndx].tasks[i].content}}</span>
+            
+            
             <!-- <span class="pst"  >{{dataSv.notes.tittle[i]}}</span> -->
             <div class="pop" (click)="pop(i)"></div>
             <!-- <div class="block" (dblclick)="pop(i)"></div> -->
@@ -13,9 +16,17 @@
     </div>
     <div class="content">
         <!-- <input class="tittleEdit" [(ngModel)]="dataSv.notes.tittle[indx]"> -->
-        <input class="tittleEdit" [(ngModel)]="headlines[1].tasks[indx].content">
+        
+        
+        <input class="tittleEdit" [(ngModel)]="headlines[localStorageSv.headlineIndx].tasks[indx].content">
+        
+        
         <!-- <textarea class="note" [(ngModel)]="dataSv.notes.content[indx]" ></textarea> -->
-        <textarea class="note" [(ngModel)]="headlines[1].tasks[indx].extension.content" ></textarea>
+        
+        
+        <textarea class="note" [(ngModel)]="headlines[localStorageSv.headlineIndx].tasks[indx].extension.content" ></textarea>
+    
+    
     </div>
     <div class="add" (click)="add()"><p>+</p></div>
 </div>

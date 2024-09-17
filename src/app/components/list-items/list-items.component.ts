@@ -1,4 +1,5 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { LocalStorageService } from 'src/app/core/services/local-storage.service';
 import { Extension } from 'src/app/model/Extension';
 import { Headline } from 'src/app/model/Headline';
 import { Task } from 'src/app/model/Task';
@@ -12,15 +13,17 @@ import { User } from 'src/app/model/User';
 export class ListItemsComponent implements OnInit {
 
   // @Input() task!:string[];
-  @Input() headlines!:Headline[];
+  // @Input() headlines!:Headline[];
 
 // ¡¡¡¡ ME CONVIENE UTILIZAR UN UNICO OBSERVABLE PARA LA INFORMACIÓN DEL USUARIO !!!! (creo que mando toda la info a el componente padre y enlazo todo con ngModel)
 
   constructor( 
     // public dataSv:DataServiceService,
-    // public localStorageSv:LocalStorageService
+    public localStorageSv:LocalStorageService
   ) {
     
+    this.headlines = localStorageSv.getUser.headlines;
+
     // localStorageSv.user.subscribe((data:User) => {
     //   this.user$ = data;
     //   this.headlines$ = data.headlines
@@ -40,22 +43,28 @@ export class ListItemsComponent implements OnInit {
   headI:number= 1;
   taskI:number= 0;
 
-  
+  headlines!:Headline[];
+
   // ----------------------------- Observables --------------------------------- ¡¡¡lo que llegan no son obsrvables!!!
   // user$:Observable<User>;
   headlines$:Headline[] | undefined
   login$:boolean | undefined;
-  // ---------------------------------------------------------------------------
 
+  
+  // ------------------------------  Methods  ----------------------------------
+
+  addItem(){
+    this.localStorageSv.addTask();
+    this.headlines = this.localStorageSv.getUser.headlines;
+    console.log(this.localStorageSv.getUser);
+  }
+
+  // ---------------------------------------------------------------------------
 
   taskIndx(i:number){
     this.taskI = i;
   }
 
-  addItem(){
-    this.headlines[this.headI].tasks.push(new Task(`Task N° ${this.headlines[this.headI].tasks.length +1}`, new Extension (`Extension N°${this.headlines[this.headI].tasks.length+1}`)))
-    // this.dataSv.addItem();
-  }
 
   test1(){
     // console.log(this.localStorageSv.getUser)

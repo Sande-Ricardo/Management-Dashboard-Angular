@@ -28,6 +28,9 @@ export class LocalStorageService {
     //   }
     // })
   }
+// --------------------------------------- Variables -----------------------------------------------
+
+  headlineIndx:number=0;
 
 // -------------------------------------- Observables ----------------------------------------------
 // private observableLoginPrivate:BehaviorSubject<boolean> =
@@ -49,15 +52,43 @@ export class LocalStorageService {
   get getUser (){
     return JSON.parse(localStorage.getItem("user") as string)
   }
-  get getLogin (){
-    return JSON.parse(localStorage.getItem("login") as string)
-  }
-
   set setUser(user:User){
     localStorage.setItem("user",JSON.stringify(user))
   }
+
+  get getLogin (){
+    return JSON.parse(localStorage.getItem("login") as string)
+  }
   set setLogin(login:boolean){
     localStorage.setItem("login",JSON.stringify(login))
+  }
+
+
+
+  addHeadline(){
+    let user:User = this.getUser;
+    user.headlines.push(new Headline("New Headline", undefined, [new Task("New Task", new Extension("New Extension", undefined, "New Task"))]));
+    this.setUser = user;
+    console.log("New headline");
+  }
+  delHeadline(i:number){
+    let user:User = this.getUser;
+    user.headlines.splice(i, 1);
+    this.setUser = user;
+    // this.setUser = this.getUser.headlines.splice(i,1);
+  }
+
+  addTask(){
+    let user:User = this.getUser;
+    user.headlines[this.headlineIndx].tasks.push(new Task("New Task", new Extension("New Extension", undefined, "New Task")));
+    this.setUser = user;
+    console.log("new Task - Extension");
+  }
+  delTask(i:number){
+    let user:User = this.getUser;
+    user.headlines[this.headlineIndx].tasks.splice(i, 1);
+    this.setUser = user;
+    // this.setUser = this.getUser.headlines[this.headlineIndx].tasks.splice(i,1);
   }
 
 // setUser() {
@@ -67,6 +98,10 @@ export class LocalStorageService {
 // setLogin() {
 //   this.login$.subscribe(data => localStorage.setItem("login", JSON.stringify(data)))
 // }
+
+  set setHeadlineI(i:number){
+    this.headlineIndx = i
+  }
 
 // -------------------------------------- Standard ----------------------------------------------
   userEx:User = new User("ric", "1@gmail.com", "qwerty", 0, "Ricardo", "Sande", [

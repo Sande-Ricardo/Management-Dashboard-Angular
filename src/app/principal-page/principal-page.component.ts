@@ -21,6 +21,7 @@ export class PrincipalPageComponent implements OnInit {
   ) {
     // this.user$ = loginSv.observableUser;
     // this.user$.subscribe(data =>{
+    
       // para definir las headlines
       // this.headlines = data.headlines;
       // para definir las tasks (REVISAR) (queda feo)
@@ -34,6 +35,8 @@ export class PrincipalPageComponent implements OnInit {
     if (!this.localStorageSv.getLogin){
       this.redirect(this.urlLogin)
     }
+
+    
 
   }
   

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { LocalStorageService } from '../core/services/local-storage.service';
+import { User } from '../model/User';
 
 @Component({
   selector: 'app-common-view',
@@ -7,9 +9,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CommonViewComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private localStorageSv:LocalStorageService
+  ) {
+    this.user=this.localStorageSv.getUser
+  }
 
   ngOnInit(): void {
   }
+
+  user!:User;
 
 }

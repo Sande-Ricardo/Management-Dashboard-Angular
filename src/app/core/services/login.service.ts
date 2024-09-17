@@ -18,7 +18,7 @@ export class LoginService {
   ){
     this.user$ = this.observableUser;
 
-    console.log("UserData: ")
+    // console.log("UserData: ")
     this.user$.subscribe(data => console.log(data))
     console.log("LoginStatus: ")
     this.observableLogin.subscribe(data => console.log(data))
