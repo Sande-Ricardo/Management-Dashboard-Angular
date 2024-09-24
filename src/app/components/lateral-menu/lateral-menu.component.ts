@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { LocalStorageService } from 'src/app/core/services/local-storage.service';
-import { Headline } from 'src/app/model/Headline';
+import { Observable } from 'rxjs';
+import { SharingService } from 'src/app/core/services/sharing.service';
+import { User } from 'src/app/model/User';
 
 @Component({
   selector: 'app-lateral-menu',
@@ -9,21 +10,31 @@ import { Headline } from 'src/app/model/Headline';
 })
 export class LateralMenuComponent implements OnInit {
 
-  // @Input() headlines!:Headline[];
   constructor(
-    public localStorageSv:LocalStorageService
+    private sharingSv:SharingService
   ) {
-    this.headlines = localStorageSv.getUser.headlines
+
+
+    this.user$.subscribe(data =>{
+      this.prueba = data
+    })
   }
 
   ngOnInit(): void {
   }
 
+// -------------------------------------- Observables ----------------------------------------------
+  user$:Observable<User> = this.sharingSv.userObservable;
 
-  headlines!:Headline[]
+// --------------------------------------- Variables -----------------------------------------------
+  // headlines!:Headline[]
 
   active1:string= "";
   active2:string= "";
+
+  // no sirve
+  prueba!:User;
+// ---------------------------------------- Methods ------------------------------------------------
 
   activate(){
     if      (this.active1==""){this.active1="deploy"; this.active2="dpl"}
@@ -31,14 +42,10 @@ export class LateralMenuComponent implements OnInit {
   }
 
   setHeadlineI(i:number){
-    this.localStorageSv.setHeadlineI = i;
   }
 
   showHeadlines(){
     try {
-      // console.log(this.headlines[0].content);
-      console.log(this.headlines);
-      
     } catch (e) {
       console.log(e);
       

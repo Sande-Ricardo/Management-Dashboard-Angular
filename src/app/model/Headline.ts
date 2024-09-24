@@ -1,17 +1,15 @@
 import { Task } from "./Task";
 
 export class Headline{
-    id!:number;
-    id_user!:number;
-
+    idHeadline!:number;
     content:string;
     
     tasks!:Task[];
 
-    constructor (cont:string,id?:number, tasks?:Task[]){
+    constructor (cont:string, tasks?:Task[],id?:number){
         this.content=cont;
 
-        if(id){this.id=id};
         if(tasks){this.tasks=tasks}
+        if(id){this.idHeadline=id};
     }
 }

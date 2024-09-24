@@ -3,12 +3,8 @@
     <div class="head"><p></p></div>
     <div class="items">
         <!-- agregar inputs binding-->
-        
-        <!-- <app-item *ngFor="let unit of dataSv.items, let i = index" [item]="dataSv.items[i]"></app-item> -->
-        <!-- <app-item *ngFor="let task of headlines[0].tasks, let i = index" [subttl]="task.content"></app-item> -->
-        <!-- <app-item *ngFor="let task of mock.headlines[0].tasks, let i = index" [subttl]="task.content"></app-item> -->
-        
-        <app-item *ngFor="let task of headlines[localStorageSv.headlineIndx]?.tasks, let i = index" [subttl]="task.content" (click)="taskIndx(i)"></app-item>
+        <!-- <app-item *ngFor="let task of (user$ | async)!.headlines[0].tasks, let i = index" [subttl]="task.title" (click)="taskIndx(i)"></app-item> -->
+        <app-item *ngFor="let task of (sharingSv.user!.headlines[0].tasks), let i = index" [subttl]="task.title" (click)="taskIndx(i)"></app-item>
         
         <div class="addItem">
             <span class="line"> </span>

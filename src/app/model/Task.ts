@@ -1,17 +1,15 @@
-import { Extension } from './Extension';
 
 export class Task{
-    id!:number;
-    id_headline!:string;
-    
+    idTask!:number;
+    title!:string;
     content:string;
 
-    extension!:Extension;
 
-    constructor (cont:string, extension?:Extension, id?:number){
+    constructor (title:string, cont:string, id?:number){
+        this.title = title
         this.content = cont
 
-        if(id){this.id=id};
-        if(extension){this.extension=extension};
+        if(id){this.idTask=id};
+        // id? (this.id=id)
     }
 }

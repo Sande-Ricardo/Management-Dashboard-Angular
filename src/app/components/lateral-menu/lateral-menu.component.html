@@ -4,6 +4,6 @@
         
         <ul>
                 <li (click)="showHeadlines()">show headlines</li>
-                <li *ngFor="let headline of headlines, let i = index" (click)="setHeadlineI(i)" >{{headline.content}}</li>
+                <li *ngFor="let headline of (user$ | async)?.headlines, let i = index" (click)="setHeadlineI(i)" >{{headline.content}}</li>
         </ul>
 </div>

@@ -2,3 +2,9 @@ transicionar los modelos a interfaces
 
 buscar diferencias
 
+En los modelos se puede prescindir de un campo
+
+Debería revisar si en las interfaces también se puede mediante el ! 
+
+
+Mediante ? se pueden definir variables opcionales

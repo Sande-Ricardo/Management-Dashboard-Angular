@@ -16,7 +16,7 @@ export class LoginComponent implements OnInit {
     private localStorageSv:LocalStorageService
   ) {
     this.login$ = loginSv.observableLogin;
-    this.user$ = loginSv.observableUser
+    // this.user$ = loginSv.observableUser
   }
 
   ngOnInit(): void {
@@ -31,7 +31,6 @@ export class LoginComponent implements OnInit {
   signU_I:string = "Don't have an account yet?";
 
   // ------------------------- Observables ---------------------------------  usarlos para obtener la información de usuario y para identificar el estado de login (respectiamente)
-  user$:Observable<User>;
   login$:Observable<boolean>
   // -----------------------------------------------------------------------
   log:boolean = false;
@@ -76,7 +75,6 @@ export class LoginComponent implements OnInit {
 
     loginStatus(){
       this.login$.subscribe(data => console.log(data));
-      this.user$.subscribe(data => console.log(data));
       console.log(this.localStorageSv.getUser)
     }
   

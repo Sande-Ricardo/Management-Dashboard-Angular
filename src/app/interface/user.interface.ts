@@ -1,7 +1,7 @@
-import { Headline } from "../model/Headline";
+import { Headline } from "./headline.interface";
 
 export interface User{
-    id: number;
+    idUser:number;
     name:string;
     last_name:string;
     username:string;
@@ -9,5 +9,4 @@ export interface User{
     password:string;
 
     headlines:Headline[];
-
 }

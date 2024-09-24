@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-import { BehaviorSubject, Observable } from 'rxjs';
+import { BehaviorSubject } from 'rxjs';
 import { User } from 'src/app/model/User';
 import { LocalStorageService } from './local-storage.service';
 
@@ -9,21 +9,16 @@ import { LocalStorageService } from './local-storage.service';
   providedIn: 'root'
 })
 export class LoginService {
-
   constructor(
     private http:HttpClient,
     private router:Router,
-    private localStorageSv:LocalStorageService
-
+    private localStorageSv:LocalStorageService,
   ){
-    this.user$ = this.observableUser;
-
+    // this.user$ = this.observableUser;
     // console.log("UserData: ")
-    this.user$.subscribe(data => console.log(data))
-    console.log("LoginStatus: ")
-    this.observableLogin.subscribe(data => console.log(data))
-
-
+    // this.user$.subscribe(data => console.log(data))
+    // console.log("LoginStatus: ")
+    // this.observableLogin.subscribe(data => console.log(data))
     if(this.localStorageSv.getLogin){
       this.redirect();
     }
@@ -32,9 +27,9 @@ export class LoginService {
 
 
   // ------------------------------ Variables ----------------------------------
-  userEx:User=this.localStorageSv.userEx;
+  // userEx:User=this.localStorageSv.userEx;
 
-  user$:Observable<User>;
+  // user$:Observable<User>;
   
   // user!: User;
   // seguramente estos campos salgan de la DDBB
@@ -47,7 +42,7 @@ export class LoginService {
   private urlWorkspace = '/home/base';
 
 
-  // ----------------------- Observable LoginStatus ---------------------------
+  // // ----------------------- Observable LoginStatus ---------------------------
   private observableLoginPrivate:BehaviorSubject<boolean> =
     new BehaviorSubject<boolean>(false);
 
@@ -55,14 +50,6 @@ export class LoginService {
 
   set observableLoginBool(bool:boolean){this.observableLoginPrivate.next(bool)};
 
-  // ------------------------- Observable User ---------------------------------
-  private observableUserPrivate:BehaviorSubject<User> =
-    new BehaviorSubject<User>(this.userEx);
-  
-  get observableUser(){return this.observableUserPrivate.asObservable()};
-
-  set observableUserData(user:User){this.observableUserPrivate.next(user)};
-  // ---------------------------------------------------------------------------
 
 
   // ------------------------------ redirect -----------------------------------
@@ -71,7 +58,6 @@ export class LoginService {
       this.router.navigate([this.urlWorkspace]);
     }
   }
-  
   
   
   // ------------------------------ log in/up ----------------------------------
@@ -86,12 +72,8 @@ export class LoginService {
       if(data == null){
         console.error("error!");
       } else {
-        this.observableUserData = data as User;
-        this.observableLoginBool = true;
-
         this.localStorageSv.setUser = data as User;
         this.localStorageSv.setLogin = true;
-
         this.redirect();
       }
     })

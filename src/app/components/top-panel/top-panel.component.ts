@@ -17,8 +17,5 @@ export class TopPanelComponent implements OnInit {
 
 
   logout(){
-    this.localSorageSv.setLogin = false;
-    this.localSorageSv.setUser = this.localSorageSv.userEx;
-    window.location.reload();
   };
 }
