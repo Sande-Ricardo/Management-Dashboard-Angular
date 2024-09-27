@@ -1,16 +1,18 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
+import { Headline } from 'src/app/model/Headline';
+import { Task } from 'src/app/model/Task';
 import { User } from 'src/app/model/User';
+import { LocalStorageService } from './local-storage.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class SharingService {
-  constructor() {
-    this.userObservable.subscribe(data =>{
-      this.user = data;
-      console.log("user is setted in SharingService");
-    })
+  constructor(
+    private localStorageSv:LocalStorageService
+  ) {
+    this.userObservableData = localStorageSv.getUser
   }
 
 
@@ -22,27 +24,60 @@ export class SharingService {
     new BehaviorSubject<User>(this.mock);
 
   get userObservable(){
-    // this.userObservablePrivate.subscribe(data =>{console.log(data);})
     return this.userObservablePrivate.asObservable()
   };
 
   set userObservableData(user:User){
-    console.log("userObservableData used");
-    
     this.userObservablePrivate.next(user)
   };
   
   
 // ---------------------------------------  Variables  ---------------------------------------------
-  user?:User
+  headlineIndex:number = 1;
 
 // ----------------------------------------  Methods  ----------------------------------------------
-  modUser(){
-    console.log("user modded");
-    
-    this.userObservableData = this.user as User;
+  updateUser(user?:User){
+    if(user){
+      this.localStorageSv.setUser = user
+    } else {
+      this.userObservable.subscribe(data=>{
+        this.localStorageSv.setUser = data;
+      })
+    }
+    console.log("user updated");
+  };
+
+  changeHeadI(i:number){
+    this.headlineIndex = i
   }
 
+  addHeadline(){
+    this.userObservable.subscribe(data=>{
+      data.headlines.push(
+        new Headline("New Headline",[new Task("New Task", "New content")])
+      )
+    });
+    this.updateUser();
+  }
+  delHeadline(i:number){
+    this.userObservable.subscribe(data=>{
+      data.headlines.splice(i,1)
+    });
+    this.updateUser();
+  }
+
+  addTask(){
+    this.userObservable.subscribe(data=>{
+      data.headlines[this.headlineIndex].tasks.push(new Task("New Task", "New content"))
+    });
+    this.updateUser();
+  }
+  delTask(i:number){
+    this.userObservable.subscribe(data=>{
+      data.headlines[this.headlineIndex].tasks.splice(i,1)
+    });
+    this.updateUser();
+  }
 
 // -------------------------------------------------------------------------------------------------
   

@@ -42,6 +42,7 @@ export class LateralMenuComponent implements OnInit {
   }
 
   setHeadlineI(i:number){
+    this.sharingSv.changeHeadI(i);
   }
 
   showHeadlines(){

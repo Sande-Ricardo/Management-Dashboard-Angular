@@ -9,7 +9,7 @@ import { LocalStorageService } from 'src/app/core/services/local-storage.service
 export class TopPanelComponent implements OnInit {
 
   constructor(
-    private localSorageSv:LocalStorageService
+    private localStorageSv:LocalStorageService
   ) { }
 
   ngOnInit(): void {
@@ -17,5 +17,6 @@ export class TopPanelComponent implements OnInit {
 
 
   logout(){
+    this.localStorageSv.logout();
   };
 }

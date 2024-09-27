@@ -3,13 +3,15 @@
     <div class="head"><p></p></div>
     <div class="items">
         <!-- agregar inputs binding-->
-        <!-- <app-item *ngFor="let task of (user$ | async)!.headlines[0].tasks, let i = index" [subttl]="task.title" (click)="taskIndx(i)"></app-item> -->
-        <app-item *ngFor="let task of (sharingSv.user!.headlines[0].tasks), let i = index" [subttl]="task.title" (click)="taskIndx(i)"></app-item>
-        
+        <div class="task" *ngFor="let task of ((user$|async)!.headlines[sharingSv.headlineIndex].tasks), let i = index">
+            <textarea [(ngModel)]="task.title" class="input format" (blur)="updateUser()"></textarea>
+            <span class="trace" ></span>
+        </div>
+
         <div class="addItem">
             <span class="line"> </span>
             <!-- <span class="cover" (click)="addItem()"></span> -->
-            <div class="cover" (click)="addItem()"></div>
+            <div class="cover" (click)="addTask()"></div>
         </div>
     </div>
     <!-- Para agregar efecto fade al final del bloque -->

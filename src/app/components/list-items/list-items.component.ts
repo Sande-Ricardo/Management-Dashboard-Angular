@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { SharingService } from 'src/app/core/services/sharing.service';
 import { Headline } from 'src/app/model/Headline';
-import { Task } from 'src/app/model/Task';
 import { User } from 'src/app/model/User';
 
 @Component({
@@ -18,7 +17,8 @@ export class ListItemsComponent implements OnInit {
 // ¡¡¡¡ ME CONVIENE UTILIZAR UN UNICO OBSERVABLE PARA LA INFORMACIÓN DEL USUARIO !!!! (creo que mando toda la info a el componente padre y enlazo todo con ngModel)
 
   constructor(
-    public sharingSv:SharingService
+    public sharingSv:SharingService,
+    // private localStorageSv:LocalStorageService
   ) {
   }
 
@@ -37,23 +37,21 @@ export class ListItemsComponent implements OnInit {
 
   // ------------------------------  Methods  ----------------------------------
 
-  addItem(){
-    this.sharingSv.user?.headlines[0].tasks.push(new Task("New Task", "New content"))
-    this.sharingSv.modUser()
+  
+  updateUser(){
+    this.sharingSv.updateUser()
   }
+  
+  addTask(){
+    this.sharingSv.addTask();
+  };
 
   // ---------------------------------------------------------------------------
 
-  taskIndx(i:number){
-    this.taskI = i;
-  }
+  // taskIndx(i:number){
+  //   this.taskI = i;
+  // }
 
-
-  test1(){
-    // console.log(this.localStorageSv.getUser)
-  }
-
-  // items:string[] = []
 
   // ---------------------------------------------------------------------------
 }

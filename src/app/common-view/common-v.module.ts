@@ -2,7 +2,6 @@ import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 
 import { FormsModule } from '@angular/forms';
-import { ItemComponent } from '../components/item/item.component';
 import { ListItemsComponent } from '../components/list-items/list-items.component';
 import { NotesComponent } from '../components/notes/notes.component';
 import { PrincipalPageComponent } from '../principal-page/principal-page.component';
@@ -20,7 +19,6 @@ import { TopPanelComponent } from '../components/top-panel/top-panel.component';
     PrincipalPageComponent,
     ListItemsComponent,
     NotesComponent,
-    ItemComponent,
     LateralMenuComponent,
     BackgroundComponent,
     TopPanelComponent,

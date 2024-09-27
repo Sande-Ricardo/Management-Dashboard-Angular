@@ -27,6 +27,65 @@
     height: 90%;
 }
 
+.task
+{
+    width: 95%;
+    margin: 2.5%;
+    min-height: 2rem;
+    position: relative;
+
+    display: flex;
+    align-items: center;
+}
+.input
+{
+    background-color: var(--sixth);
+    display: flex;
+    align-items: center;
+    position: relative;
+    border: none;
+    outline: none;
+    height: 1rem;
+    resize: none;
+    max-width: 80%;
+    left: 2rem;
+    margin: .5rem;
+    font-weight: 400;
+    font-size: .8rem;
+    border-radius: .5rem;
+    padding: .25rem;
+    overflow: hidden;
+}
+.input:focus ~ .trace
+{
+    width: 1.5rem;
+    height: 1.5rem;
+    left: .4rem;
+}
+.format
+{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.trace
+{
+    position: absolute;
+    border: .2rem white solid;
+    border-radius: 50%;
+    box-shadow: 0 0 .1rem .01rem white
+                ,inset 0 0 .1rem .01rem white;
+    font-size: 1.3rem;
+    font-weight: 700;
+    height: 2px;
+    width: 2px;
+    box-sizing: 2rem;
+    left: 1rem;
+
+    transition: .3s;
+}
+
+
 .addItem{
     position: relative;
     background-color: var(--fifth);
