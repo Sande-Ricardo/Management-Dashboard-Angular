@@ -8,7 +8,112 @@
     width: 15rem;
     height: 100%;
     transition: .2s;
+
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; */
 }
+
+.container12 > div
+{
+    /* border: solid red 1px; */
+    /* min-height: 4rem; */
+
+    position: relative;
+    top: 8rem;
+}
+
+.logo
+{
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    height: 3rem;
+    width: 100%;
+}
+.svg
+{
+    position: relative;
+    left: .5rem;
+    top: .5rem;
+    width: 2rem;
+    height: 2rem;
+    fill: white;
+    stroke: white;
+
+    stroke-dasharray: 500;
+    stroke-dashoffset: 0;
+
+    transition: 300ms;
+}
+.svg:hover
+{
+    animation: logo .6s linear forwards;
+    fill: black;
+    stroke: black;
+    transform:scale(1.2);
+    filter: drop-shadow(0 0 1px white)
+            drop-shadow(0 0 3px white);
+}
+
+.section
+{
+    color: rgb(0, 0, 0);
+    font-weight: 600;
+    font-size: 1.7rem;
+    align-content: center;
+    width: fit-content;
+
+    margin-left: 1rem;
+    /* text-align: center; */
+}
+
+.headlines
+{
+    margin-top: .5rem;
+    width: 80%;
+    left: 15%;
+}
+.list > li
+{
+    color: rgb(154, 154, 154);
+    font-size: 1.2rem;
+    margin: .8rem 0 .8rem 0;
+    list-style-type: none;
+
+}
+.itemSelected
+{
+    position: relative;
+    color: white;
+    animation: selectedItem .2s ease-in;
+
+}
+.itemSelected::before
+{
+    content: '';
+    position: absolute;
+    left: -.8rem;
+    top: -.3rem;
+    border: 1px solid white;
+    border-radius: 2px;
+    width: 1px;
+    background-color: white;
+    height: 1.8rem;
+
+    animation: selectedBefore .2s ease-in;
+}
+.add
+{
+    width: fit-content;
+    position: fixed;
+    bottom: 1rem;
+    right: 1rem;
+    /* background-color: aqua; */
+    
+}
+
 .activate
 {
     background-image: linear-gradient(to right, var(--primary), rgba(0,0,0,.01));
@@ -39,6 +144,7 @@
     transform: rotate(180deg);
 }
 
+
 @media (max-width:450px){
     .container12{
         width: 100%;
@@ -51,5 +157,52 @@
     .deploy{
         left: 0;
         /* background-color: aliceblue; */
+    }
+}
+
+
+
+@keyframes selectedItem {
+    0%
+    {
+        color: rgb(154, 154, 154);
+    }
+}
+@keyframes selectedBefore {
+    0%
+    {
+        opacity: 0;
+        color: rgb(154, 154, 154);
+        transform: scaleY(.1);
+    }
+    100%
+    {
+        /* color: white; */
+        /* transform: scaleY(1); */
+    }
+}
+
+@keyframes logo
+{
+    0%
+    {
+        transform:scale(1);
+        fill: white;
+        stroke: white;
+        stroke-dashoffset: 0;
+    }
+    50%
+    {
+        fill: white;
+        stroke: white;
+        stroke-dashoffset: 500;
+        transform:scale(.4);
+    }
+    100%
+    {
+        transform:scale(1.2);
+        fill: black;
+        stroke: black;
+        
     }
 }

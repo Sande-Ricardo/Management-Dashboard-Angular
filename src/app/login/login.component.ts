@@ -3,6 +3,8 @@ import { NgForm } from '@angular/forms';
 import { Observable } from 'rxjs';
 import { LocalStorageService } from '../core/services/local-storage.service';
 import { LoginService } from '../core/services/login.service';
+import { Headline } from '../model/Headline';
+import { Task } from '../model/Task';
 import { User } from '../model/User';
 
 @Component({
@@ -12,7 +14,8 @@ import { User } from '../model/User';
 })
 export class LoginComponent implements OnInit {
 
-  constructor( private loginSv:LoginService,
+  constructor( 
+    private loginSv:LoginService,
     private localStorageSv:LocalStorageService
   ) {
     this.login$ = loginSv.observableLogin;
@@ -57,6 +60,9 @@ export class LoginComponent implements OnInit {
       form.value.username,
       form.value.email,
       form.value.password,
+      "Name","Lastname",
+      [new Headline("First Headline",[new Task("Task","Content")])]
+
     );
     this.loginSv.register(user);
     this.signUpIn()

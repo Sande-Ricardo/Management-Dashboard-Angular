@@ -33,7 +33,7 @@ export class SharingService {
   
   
 // ---------------------------------------  Variables  ---------------------------------------------
-  headlineIndex:number = 1;
+  headlineIndex:number = 0;
 
 // ----------------------------------------  Methods  ----------------------------------------------
   updateUser(user?:User){

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { LocalStorageService } from 'src/app/core/services/local-storage.service';
+import { LoginService } from 'src/app/core/services/login.service';
 
 @Component({
   selector: 'app-top-panel',
@@ -9,7 +9,8 @@ import { LocalStorageService } from 'src/app/core/services/local-storage.service
 export class TopPanelComponent implements OnInit {
 
   constructor(
-    private localStorageSv:LocalStorageService
+    // private localStorageSv:LocalStorageService
+    private loginSv:LoginService
   ) { }
 
   ngOnInit(): void {
@@ -17,6 +18,7 @@ export class TopPanelComponent implements OnInit {
 
 
   logout(){
-    this.localStorageSv.logout();
+    this.loginSv.logout();
+    location.reload()
   };
 }

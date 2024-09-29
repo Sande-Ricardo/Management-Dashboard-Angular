@@ -25,7 +25,7 @@ export class LocalStorageService {
   get getUser (){
     return JSON.parse(localStorage.getItem("user") as string)
   }
-  set setUser(user:User){
+  set setUser(user:User | string){
     localStorage.setItem("user",JSON.stringify(user))
   }
 
@@ -37,14 +37,14 @@ export class LocalStorageService {
   }
 
 
-  updateUser(){
-    // this.user$.subscribe(data=>{
-    //   this.setUser = data
-    // })
-  }
+  // updateUser(){
+  //   // this.user$.subscribe(data=>{
+  //   //   this.setUser = data
+  //   // })
+  // }
 
   logout(){
-    this.setUser = new User("Name", "Email","Password");
+    this.setUser = "";
     this.setLogin = false;
     console.log("Logout");
   }

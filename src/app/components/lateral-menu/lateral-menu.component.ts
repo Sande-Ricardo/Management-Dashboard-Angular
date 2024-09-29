@@ -11,13 +11,13 @@ import { User } from 'src/app/model/User';
 export class LateralMenuComponent implements OnInit {
 
   constructor(
-    private sharingSv:SharingService
+    public sharingSv:SharingService
   ) {
 
 
-    this.user$.subscribe(data =>{
-      this.prueba = data
-    })
+    // this.user$.subscribe(data =>{
+    //   this.prueba = data
+    // })
   }
 
   ngOnInit(): void {
@@ -32,8 +32,10 @@ export class LateralMenuComponent implements OnInit {
   active1:string= "";
   active2:string= "";
 
+
+
   // no sirve
-  prueba!:User;
+  // prueba!:User;
 // ---------------------------------------- Methods ------------------------------------------------
 
   activate(){
@@ -45,8 +47,17 @@ export class LateralMenuComponent implements OnInit {
     this.sharingSv.changeHeadI(i);
   }
 
+  addHeadline(){
+    this.sharingSv.addHeadline();
+  }
+
   showHeadlines(){
     try {
+      this.user$.subscribe(data=>{
+        console.log(data);
+        
+      })
+      
     } catch (e) {
       console.log(e);
       

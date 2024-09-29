@@ -75,9 +75,24 @@ export class LoginService {
         this.localStorageSv.setUser = data as User;
         this.localStorageSv.setLogin = true;
         this.redirect();
+
+        location.reload()
       }
     })
   };
   
-
+  // -------------------------------  logout  ----------------------------------
+  logout(){
+    try{
+      let user:User = this.localStorageSv.getUser;
+      this.http.post(this.urlUser + '/update/' + user.idUser.toString(), user).subscribe(
+        data=>{
+          return data
+        }
+      )
+    } catch (error) {
+      console.error(error);
+    }
+    this.localStorageSv.logout();
+  };
 }

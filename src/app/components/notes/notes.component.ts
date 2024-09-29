@@ -17,7 +17,6 @@ export class NotesComponent implements OnInit {
     this.user$.subscribe(data => {
       console.log("Set Tasks in NotesComponent");
       this.tasks = data.headlines[sharingSv.headlineIndex].tasks;
-      // this.user = data;
     })
 
   }
@@ -53,7 +52,8 @@ export class NotesComponent implements OnInit {
     this.taskIndex=i
   };
 
-  add(){
+  addTask(){
+    this.sharingSv.addTask();
   };
   delTask(i:number){
     this.sharingSv.delTask(i);

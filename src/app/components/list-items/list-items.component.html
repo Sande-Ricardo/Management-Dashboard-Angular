@@ -1,6 +1,9 @@
 <div class="container231">
     <!-- Hace falta agregar efecto fade como principio del bloque -->
-    <div class="head"><p></p></div>
+    <div class="headline" *ngIf="edit" (dblclick)="changeEdit()" >
+        <input [(ngModel)]="headlines[sharingSv.headlineIndex].content" (blur)="updateUser(true)">
+    </div>
+    <div class="headline" *ngIf="!edit" (dblclick)="changeEdit()"><p>{{headlines[sharingSv.headlineIndex].content}}</p></div>
     <div class="items">
         <!-- agregar inputs binding-->
         <div class="task" *ngFor="let task of ((user$|async)!.headlines[sharingSv.headlineIndex].tasks), let i = index">
@@ -10,8 +13,8 @@
 
         <div class="addItem">
             <span class="line"> </span>
-            <!-- <span class="cover" (click)="addItem()"></span> -->
             <div class="cover" (click)="addTask()"></div>
+            <!-- <span class="cover" (click)="addItem()"></span> -->
         </div>
     </div>
     <!-- Para agregar efecto fade al final del bloque -->
