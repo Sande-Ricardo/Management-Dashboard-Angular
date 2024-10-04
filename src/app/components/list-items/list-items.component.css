@@ -2,7 +2,7 @@
 
 .container231{
     /* background-color: red; */
-    position: absolute;
+    position: relative;
     /* display: flex; */
     width: 100%;
     height: 100%;
@@ -16,13 +16,18 @@
     /* background-color: blue; */
     width: 90%;
     height: 2rem;
-    justify-self: end;
+    /* margin-top: .5rem; */
+    align-content: end;
+
+    font-size: 1.5rem;
 }
 
 .items{
-    margin-top: 2rem;
+    /* margin-top: 2rem; */
     /* background-color: red; */
     position: relative;
+    top: 10%;
+    /* bottom: 0; */
     overflow-y: scroll;
     height: 90%;
 }
@@ -87,7 +92,8 @@
 
 
 .addItem{
-    position: relative;
+    position: absolute;
+    bottom: .5rem;
     background-color: var(--fifth);
     margin: 0 5% 0 5%;
     height: 1.5rem;

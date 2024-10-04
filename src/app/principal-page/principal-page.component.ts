@@ -1,9 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { LocalStorageService } from '../core/services/local-storage.service';
-import { Headline } from '../model/Headline';
-import { Task } from '../model/Task';
-import { User } from '../model/User';
 
 @Component({
   selector: 'app-principal-page',
@@ -29,8 +26,8 @@ export class PrincipalPageComponent implements OnInit {
       // this.taskTittles = this.tasks.forEach((tittle) => tittle.content) as unknown as string[]
     // } );
 
-    this.user=localStorageSv.getUser
-    this.headlines=this.user.headlines
+    // this.user=localStorageSv.getUser
+    // this.headlines=this.user.headlines
     
     if (!this.localStorageSv.getLogin){
       this.redirect(this.urlLogin)
@@ -55,10 +52,10 @@ export class PrincipalPageComponent implements OnInit {
   displayM:string[]=["","displayNoneM","displayNoneM","displayNoneM"];
   
   
-  user!:User;
-  headlines!:Headline[];
-  tasks!:Task[];
-  taskTittles!:string[];
+  // user!:User;
+  // headlines!:Headline[];
+  // tasks!:Task[];
+  // taskTittles!:string[];
   // ---------------------------------------------------------------------------
   
   
@@ -70,6 +67,11 @@ export class PrincipalPageComponent implements OnInit {
   };
   
   changeDisplay(n:number){
+    if(n == 1){
+      this.display = ["","","",""];
+      this.displayM = ["","displayNoneM","displayNoneM","displayNoneM"];
+
+    }
     this.displayN = "display"+n;
     console.log(this.displayN)
   }

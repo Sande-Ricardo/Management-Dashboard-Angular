@@ -56,6 +56,11 @@ export class NotesComponent implements OnInit {
     this.sharingSv.addTask();
   };
   delTask(i:number){
+    if(i!=0){
+      this.changeTaskI(i-1);
+    } else {
+      this.changeTaskI(0);
+    }
     this.sharingSv.delTask(i);
   }
 
