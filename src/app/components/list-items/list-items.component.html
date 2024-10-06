@@ -1,21 +1,25 @@
 <div class="container231">
     <!-- Hace falta agregar efecto fade como principio del bloque -->
-    <div class="headline" *ngIf="edit" (dblclick)="changeEdit()" >
-        <input [(ngModel)]="headlines[sharingSv.headlineIndex].content" (blur)="updateUser(true)">
+    <div class="headline" *ngIf="edit" (dblclick)="changeEdit()">
+        <input [(ngModel)]="headlines[sharingSv.headlineIndex].content" (blur)="updateUser(true)" />
     </div>
-    <div class="headline" *ngIf="!edit" (dblclick)="changeEdit()"><p>{{headlines[sharingSv.headlineIndex].content}}</p></div>
+    <div class="headline" *ngIf="!edit" (dblclick)="changeEdit()">
+        <p>{{ headlines[sharingSv.headlineIndex].content }}</p>
+    </div>
     <div class="items">
         <!-- agregar inputs binding-->
-        <div class="task" *ngFor="let task of ((user$|async)!.headlines[sharingSv.headlineIndex].tasks), let i = index">
-            <textarea [(ngModel)]="task.title" class="input format" (blur)="updateUser()"></textarea>
-            <span class="trace" ></span>
+        <div class="task" *ngFor="
+            let task of (user$ | async)!.headlines[sharingSv.headlineIndex].tasks;
+            let i = index
+        ">
+            <textarea class="input" [(ngModel)]="task.title" (blur)="updateUser()"></textarea>
+            <span class="trace"></span>
         </div>
-
-        <div class="addItem">
-            <span class="line"> </span>
-            <div class="cover" (click)="addTask()"></div>
-            <!-- <span class="cover" (click)="addItem()"></span> -->
-        </div>
+    </div>
+    <div class="addItem">
+        <span class="line"> </span>
+        <div class="cover" (click)="addTask()"></div>
+        <!-- <span class="cover" (click)="addItem()"></span> -->
     </div>
     <!-- Para agregar efecto fade al final del bloque -->
     <span class="fade"></span>

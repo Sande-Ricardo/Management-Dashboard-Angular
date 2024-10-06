@@ -1,43 +1,52 @@
 .container221{
-    background-color: rgba(255, 255, 255, 0.3);
+    background-color: var(--prm1);
     position: relative;
     display: grid;
     width: 100%;
     height: 100%;
-    
+    /* overflow: hidden; */
 }
 
 .flanges{
-    /* background-color: rgb(255, 0, 204); */
     position: relative;
-    max-width: 100%;
+    max-width: calc(100% - 30px);
     height: 1rem;
     display: inline-flex;
-    /* transition: all 400ms; */
+    margin: 2px 0 0 15px;
+    transition: all 400ms;
     
 }
 
-.tittle{
-    background-color: var(--fourth);
+.tab{
+    background-color: var(--prm4);
     height: 1rem;
     transition: 300ms;
     max-width: 8rem;
     overflow: hidden;
     margin-left: 3px;
     position: relative;
+    border-radius: 10px;
+    color: white;
+    font-size: .7rem;
+    font-family: var(--font1 );
+    /* letter-spacing: 1px; */
 }
-.tittle:hover{
-    background-color: var(--third);
+.tab:hover{
+    background-color: var(--prm5);
     cursor: default;
     /* opacity: .7; */
     /* max-width: 8rem; */
 }
-.pst{
+.title{
     /* background-color: aqua; */
     position: absolute;
+    height: 100%;
     max-width: 90%;
     left: 5%;
+    align-content: center;
     overflow: hidden;
+    padding: 0;
+    margin: 0;
 }
 .block{
     position: absolute;
@@ -51,10 +60,20 @@
     height: 100%;
     right: 0;
     transition: .1s linear;
+    border-radius: 10px;
     /* background-color:aqua; */
 }
 .pop:hover{
-    background-color: var(--fourth);
+    background-color: var(--prm3);
+}
+.pop:hover::before{
+    content: 'x';
+    font-size: .9rem;
+    color: var(--prm1);
+    align-items: center;
+    width: 100%;
+    text-align: center;
+    position: absolute;
 }
 
 .content{
@@ -64,20 +83,22 @@
     height: 200%;
     top: -100%;
 }
-.tittleEdit{
+.titleEdit{
     position: absolute;
     left:3rem;
     top: .7rem;
     max-width: 30rem;
-    background-color: rgb(255, 248, 255, 0);
+    background-color: rgba(255, 255, 255, 0);
     border: none;
-    color: rgb(50, 50, 50);
+    color: var(--prm5);
     font-weight: 700;
     font-size: 1.2rem;
+    /* font-family: ; */
     outline: none;
 }
 .note{
     background-color: rgba(255, 255, 255, 0);
+    color: var(--prm5);
     position: absolute;
     width: calc(100% - 1.4rem);
     height: calc(100% - 3.8rem);
@@ -99,8 +120,9 @@
 
 .add{
     position: absolute;
-    background-color: var(--secondary);
-    box-shadow: 0 0 .2rem var(--primary);
+    display:flex;
+    background-color: var(--prm3);
+    box-shadow: 0 0 .2rem var(--prm5);
     opacity: .7;
     transition: all 200ms;
     width: 1.8rem;
@@ -109,8 +131,8 @@
     right: .5rem;
     border-radius: 50%;
     align-items: center;
-    display:flex
-
+    text-align: center;
+    color: var(--prm3);
 }
 .add:hover{
     opacity: 1;
@@ -126,6 +148,6 @@
 
 }
 .add p {
-    position: relative;
-    left: 33%;
+    /* position: relative; */
+    /* left: 33%; */
 }

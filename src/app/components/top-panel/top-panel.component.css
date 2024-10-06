@@ -1,12 +1,33 @@
 .container13{
-    background-color: var(--sixth);
+    background-color: var(--prm1);
     position:fixed;
     left: 16rem;
     top: 0;
-    width: calc(100% - 15rem);
+    width: calc(100vw - 16rem);
     height: 4.5rem;
     border-radius: 1.5rem 0 0 1.5rem;
-    box-shadow: 0 0 .7rem rgba(2, 2, 2, 0.79); 
+    box-shadow: 0 0 .7rem rgba(2, 2, 2, 0.79);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.section1{
+
+}
+
+.section2{
+
+}
+
+.section3{
+}
+
+.menuIcon{
+    /* background-color: aquamarine; */
+    position: absolute;
+    right: 1rem;
+    height: 1.5rem;
+    width: 1.5rem;
 }
 
 @media(max-width:450px){

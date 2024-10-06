@@ -1,5 +1,5 @@
-.container11{
-    /* background-image: linear-gradient(to bottom, var(--secondary), var(--third)); */
+.container11 {
+    background-image: linear-gradient(to bottom, var(--prm3), var(--prm4));
     /* background-color: aliceblue; */
     position: fixed;
     margin: 0;
@@ -8,16 +8,27 @@
     top: 0;
     width: 100%;
     height: 100%;
-    
+
 }
-.background{
+
+.container11 img {
+    position: absolute;
+    height: 15rem;
+    width: 15rem;
+    bottom: 5%;
+    left: 0;
+    opacity: .2;
+}
+
+.background {
     margin: 0;
     padding: 0;
     width: 100%;
     height: 100%;
     opacity: .4;
-    object-fit:cover;
+    object-fit: cover;
 }
+
 /* @media (max-width:450px)
 {
     .background{

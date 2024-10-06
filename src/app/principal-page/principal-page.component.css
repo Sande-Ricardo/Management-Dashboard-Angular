@@ -1,4 +1,4 @@
-.container2{
+.container2 {
     /* background-color: pink; */
     position: relative;
     top: 0;
@@ -14,50 +14,59 @@
 }
 
 
-.display1{
-    grid-template-areas:    'one  two'
-    'three four';
-    grid-template-rows: minmax(70%,auto) minmax(30%,auto);
+.display1 {
+    grid-template-areas: 'one  two'
+        'three four';
+    grid-template-rows: minmax(70%, auto) minmax(30%, auto);
 }
-.display2{
-    grid-template-areas:    'one two'
-    'one four';
+
+.display2 {
+    grid-template-areas: 'one two'
+        'one four';
 }
-.display3{
+
+.display3 {
     /* background-color: bisque; */
     grid-template-columns: none;
 }
 
-.displayNone{
+.displayNone {
     display: none;
 }
 
-.chart{
+.chart {
     background-color: rgba(203, 237, 255, 0.435);
-    border: 2px solid black;
+    border-radius: 15px;
+    /* border: 2px solid black; */
     /* min-width: 10rem; */
     /* position: relative; */
     position: absolute;
     /* left: 0; */
     /* top: 0; */
     width: 100%;
-    height:100%;
+    height: 100%;
     /* overflow-y: scroll; */
+    overflow: hidden;
 }
-.c-one{
+
+.c-one {
     grid-area: one;
 }
-.c-two{
+
+.c-two {
     grid-area: two;
 }
-.c-three{
+
+.c-three {
     grid-area: three;
 
 }
-.c-four{
+
+.c-four {
     grid-area: four;
 }
-.clock{
+
+.clock {
     background-color: var(--primary);
     position: absolute;
     width: 10rem;
@@ -67,7 +76,7 @@
     bottom: 1rem;
 }
 
-.control{
+.control {
     /* background-color: aqua; */
     border-radius: .4rem;
     padding: 0 .5rem 0 .5rem;
@@ -79,24 +88,27 @@
     left: 1rem;
     align-items: center;
 }
-.subcont{
+
+.subcont {
     /* background-color: blue; */
     background: linear-gradient(var (--primary), var (--third));
     display: inline-flex;
     /* justify-content: space-between; */
     animation: expand .5s;
 }
-.logo{
+
+.logo {
     /* display:block; */
     position: relative;
     width: 1.1rem;
     /* font-size: 16px; */
-    margin: 0 .3rem 0 .3rem ;
+    margin: 0 .3rem 0 .3rem;
     color: white;
     filter: drop-shadow(0 0rem .1rem rgb(0, 0, 0));
     /* background-color: rgb(2, 248, 248); */
 }
-.cover{
+
+.cover {
     display: none;
     background-color: bisque;
     position: absolute;
@@ -104,6 +116,7 @@
     width: 100%;
     height: 100%;
 }
+
 /* .pruebas{
     background-color: rgb(125, 0, 241);
     position: absolute;
@@ -113,37 +126,42 @@
 } */
 
 
-@media (max-width:450px){
-    .container2{
+@media (max-width:450px) {
+    .container2 {
         display: flex;
     }
+
     /* .container2{
         display:flex
     } */
-    .chart{
+    .chart {
         /* display: block; */
-        width:100%;
+        width: 100%;
         height: 80vh;
         /* height: 100%; */
     }
-    .cover{
+
+    .cover {
         display: block;
     }
-    .displayNoneM{
+
+    .displayNoneM {
         display: none;
     }
-    .control{
+
+    .control {
         left: 15%;
     }
 }
 
 
-@keyframes expand{
-    0%{
+@keyframes expand {
+    0% {
         opacity: 0;
         transform: scaleX(.1);
     }
-    to{
+
+    to {
         opacity: 1;
         transform: scaleX(1);
 

@@ -8,10 +8,25 @@
     --sixth: #e0e4fc;
     --seventh: #ebebeb;
 
+    --prm1: #E0E4FC;
+    --prm2: #9BA3D1;
+    --prm3: #616CA8;
+    --prm4: #333E7D;
+    --prm5: #141D52;
+    --prm6: #5B5B5B;
+    --prm7: #757575;
+
+    --font1: Arial;
+    --font2: 'Times New Roman', Times, serif;
+    --font3: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    --font4: 'Arial, Helvetica, sans-serif';
+    
+
 }
 *{
     width: 100%;
     margin:0;
     padding: 0;
     box-sizing: border-box;
+    font-family:Arial;
 }

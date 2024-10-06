@@ -1,17 +1,13 @@
 <div class="container221">
     <div class="flanges">
-        <div class="tittle {{i}}" *ngFor="let task of (user$|async)!.headlines[sharingSv.headlineIndex].tasks , let i = index" (click)="changeTaskI(i)" [ngStyle]="{'opacity': taskIndex == i ? 1 : .7}">
-            <span class="pst" (blur)="updateUser()">{{(task.title)}}</span>
+        <div class="tab {{i}}" *ngFor="let task of (user$|async)!.headlines[sharingSv.headlineIndex].tasks , let i = index" (click)="changeTaskI(i)" [ngStyle]="{'opacity': taskIndex == i ? 1 : .7}">
+            <span class="title" (blur)="updateUser()">{{(task.title)}}</span>
             <div class="pop" (click)="delTask(i)"></div>
         </div>
-        <!-- <span class="pst"  >{{dataSv.notes.tittle[i]}}</span> -->
-        <!-- <div class="block" (dblclick)="pop(i)"></div> -->
-        <!-- {{notes.tittle[i]}} -->
     </div>
     <div class="content">
-        <input class="tittleEdit" [(ngModel)]="tasks[taskIndex].title" (blur)="updateUser(true)">
+        <input class="titleEdit" [(ngModel)]="tasks[taskIndex].title" (blur)="updateUser(true)">
         <textarea class="note" [(ngModel)]="tasks[taskIndex].content" (blur)="updateUser(true)"></textarea>
     </div>
-    <!-- <input class="tittleEdit" [(ngModel)]="()" (blur)="updateUser()"> -->
     <div class="add" (click)="addTask()"><p>+</p></div>
 </div>
