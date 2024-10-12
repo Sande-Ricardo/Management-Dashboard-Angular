@@ -36,6 +36,22 @@ export class LocalStorageService {
     localStorage.setItem("login",JSON.stringify(login))
   }
 
+// ChatBot
+  get getChatbotQuestions(){
+    return JSON.parse(localStorage.getItem("chatbotQuestions")  || '[]')
+  }
+  set setChatbotQuestions(chatbotQuestions:string[]){
+    localStorage.setItem("chatbotQuestions",JSON.stringify(chatbotQuestions))
+  }
+
+  get getChatbotAnswers(){
+    return JSON.parse(localStorage.getItem("chatbotAnswers")  || '[]')
+  }
+  set setChatbotAnswers(chatbotAnswers:string[]){
+    localStorage.setItem("chatbotAnswers",JSON.stringify(chatbotAnswers))
+  }
+
+
 
   // updateUser(){
   //   // this.user$.subscribe(data=>{

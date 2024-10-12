@@ -9,6 +9,11 @@
   <link rel="icon" type="image/x-icon" href="favicon.ico">
 </head>
 <body>
+  <script type="module">
+    import { GoogleGenerativeAI } from 'https://esm.run/@google/generative-ai';
+    window.GoogleGenerativeAI = GoogleGenerativeAI;
+  </script>
+
   <app-root></app-root>
 </body>
 </html>

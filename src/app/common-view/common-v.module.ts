@@ -8,6 +8,7 @@ import { PrincipalPageComponent } from '../principal-page/principal-page.compone
 import { CommonVRoutingModule } from './common-v-routing.module';
 import { CommonViewComponent } from './common-view.component';
 
+import { AssistantComponent } from '../components/assistant/assistant.component';
 import { BackgroundComponent } from '../components/background/background.component';
 import { ClockComponent } from '../components/clock/clock.component';
 import { LateralMenuComponent } from '../components/lateral-menu/lateral-menu.component';
@@ -22,7 +23,8 @@ import { TopPanelComponent } from '../components/top-panel/top-panel.component';
     LateralMenuComponent,
     BackgroundComponent,
     TopPanelComponent,
-    ClockComponent
+    ClockComponent,
+    AssistantComponent
   ],
   imports: [
     CommonModule,

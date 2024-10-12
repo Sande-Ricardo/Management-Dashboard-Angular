@@ -7,6 +7,19 @@
     min-width: 100vw;
     flex-direction: column;
 
+    display: flex;
+    align-items: center;
+    /* justify-content: center; */
+}
+
+.subcontainer{
+    position: relative;
+    top: 7vh;
+    width: 80%;
+    height: 70vh;
+    border: solid 2px white;
+    /* border-radius: 2rem; */
+    overflow: hidden;
 }
 
 .ttl{
