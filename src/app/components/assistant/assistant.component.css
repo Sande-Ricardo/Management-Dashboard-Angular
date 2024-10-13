@@ -28,7 +28,7 @@
     position: relative;
     width: 100%;
     height: calc(100% - 4.4rem);
-    overflow-y: scroll;
+    overflow-y: auto;
 }
 
 .subcontainer{

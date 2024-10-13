@@ -70,6 +70,9 @@
     margin-top: .5rem;
     width: 80%;
     left: 15%;
+
+    overflow-y: auto;
+    overflow-x: hidden;
 }
 
 .list>li {

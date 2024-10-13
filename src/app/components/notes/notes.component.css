@@ -111,7 +111,8 @@
     box-sizing: border-box;
     border: 0;
     font-size: 1rem;
-
+    overflow-y: auto;
+    overflow-x: hidden;
     /* background-color: var(--secondary); */
     /* bottom: -1px; */
     /* vertical-align: top;  */

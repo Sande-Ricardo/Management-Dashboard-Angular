@@ -11,6 +11,7 @@ import { CommonViewComponent } from './common-view.component';
 import { AssistantComponent } from '../components/assistant/assistant.component';
 import { BackgroundComponent } from '../components/background/background.component';
 import { ClockComponent } from '../components/clock/clock.component';
+import { FlashcardsComponent } from '../components/flashcards/flashcards.component';
 import { LateralMenuComponent } from '../components/lateral-menu/lateral-menu.component';
 import { TopPanelComponent } from '../components/top-panel/top-panel.component';
 
@@ -24,7 +25,8 @@ import { TopPanelComponent } from '../components/top-panel/top-panel.component';
     BackgroundComponent,
     TopPanelComponent,
     ClockComponent,
-    AssistantComponent
+    AssistantComponent,
+    FlashcardsComponent
   ],
   imports: [
     CommonModule,

@@ -38,7 +38,7 @@
 .items {
     position: absolute;
     bottom: 2rem;
-    overflow-y: scroll;
+    overflow-y: auto;
     overflow-x: hidden;
     height: 80%;
 }

@@ -1,0 +1,14 @@
+<div class="container251">
+    <div class="decorate"*ngIf="title.length != 0"></div>
+    <div class="subcontainer">
+        <span class="title"> 
+            <p>{{title[index]}}</p>
+        </span>
+        <div class="content">
+            <p>{{content[index]}}</p>
+        </div>
+        <div class="btn left" (click)="changeCard(false)">  </div>
+        <div class="btn right" (click)="changeCard(true)">  </div>
+    </div>
+
+</div>
