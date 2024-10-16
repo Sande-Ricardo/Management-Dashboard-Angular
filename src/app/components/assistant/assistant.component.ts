@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { LocalStorageService } from 'src/app/core/services/local-storage.service';
 // import { GenerativeModel, GoogleGenerativeAI } from '@google/generative-ai';
 // import { GoogleGenerativeAI } from '@google/generative-ai';
@@ -8,7 +8,8 @@ import { LocalStorageService } from 'src/app/core/services/local-storage.service
 @Component({
   selector: 'app-assistant',
   templateUrl: './assistant.component.html',
-  styleUrls: ['./assistant.component.css']
+  styleUrls: ['./assistant.component.css'],
+  encapsulation: ViewEncapsulation.None
 })
 export class AssistantComponent implements OnInit {
 
@@ -24,7 +25,7 @@ export class AssistantComponent implements OnInit {
   }
 
 // ------------------------------------------ Mock -------------------------------------------------
-
+str:string= `# hola`
 
 // --------------------------------------- Variables -----------------------------------------------
 inputText: string = '';

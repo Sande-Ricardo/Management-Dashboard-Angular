@@ -8,6 +8,7 @@ import { PrincipalPageComponent } from '../principal-page/principal-page.compone
 import { CommonVRoutingModule } from './common-v-routing.module';
 import { CommonViewComponent } from './common-view.component';
 
+import { MarkdownModule } from 'ngx-markdown';
 import { AssistantComponent } from '../components/assistant/assistant.component';
 import { BackgroundComponent } from '../components/background/background.component';
 import { ClockComponent } from '../components/clock/clock.component';
@@ -31,7 +32,8 @@ import { TopPanelComponent } from '../components/top-panel/top-panel.component';
   imports: [
     CommonModule,
     CommonVRoutingModule,
-    FormsModule
+    FormsModule,
+    MarkdownModule.forRoot()
   ],
   exports:[
     CommonViewComponent

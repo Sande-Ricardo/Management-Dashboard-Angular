@@ -6,7 +6,9 @@
     <div class="messages">
         <div class="subcontainer" *ngFor="let interaction of questions, let i = index">
             <p class="mess question">{{interaction}}</p>
-            <p class="mess answer">{{answers[i]}}</p>
+            <!-- <p class="mess answer">{{answers[i]}}</p> -->
+            <!-- <markdown class="mess answer">{{answers[i]}}</markdown> -->
+            <markdown class="mess answer" [data]="answers[i]" ></markdown>
         </div>
     </div>
     

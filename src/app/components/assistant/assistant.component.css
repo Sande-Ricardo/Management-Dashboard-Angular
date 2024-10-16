@@ -54,9 +54,18 @@
     left: 30%;
     display: flex;
     justify-content: flex-end;
-    
-}
+    display: flex;
+    flex-direction: column;
 
+}
+.answer ul{
+    list-style-type: none;
+    /* margin: 0; */
+    /* padding: 0; */
+}
+.answer > *{
+    margin: .2rem 0 .2rem 0;
+}
 
 .panel{
     position: absolute;
