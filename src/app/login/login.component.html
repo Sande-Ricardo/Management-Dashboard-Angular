@@ -1,36 +1,40 @@
 <div class="container">
+
     <div class="cont1" *ngIf="conditional1">
         <h2 class="ttl" (click)="loginStatus()">Sign In</h2>
-        <p>{{(login$ | async)}}</p>
+        <!-- <p>{{(login$ | async)}}</p> -->
         <!-- <h2 class="ttl" *ngIf="!conditional1">Sign Up</h2> -->
         <form class="cont2" #log="ngForm" (ngSubmit)="login(log)">
-            <div><input class="unit1" type="text" name="email"      placeholder=" Email"    [(ngModel)]="usrn1"  ></div>
-            <div><input class="unit1" type="text" name="password"   placeholder=" Password"  [(ngModel)]="ctr1"  ></div>
-            <div class="unit1 subun1">
+            <p class="error" *ngIf="errorEmailOrPassword">Invalid email or password</p>
+            <input class="unit1" type="text" name="email"      placeholder="Email"    [(ngModel)]="usrn1">
+            <input class="unit1" type="text" name="password"   placeholder="Password"  [(ngModel)]="ctr1"  >
+            <div class="subOne">
                 <a class="sub1" href="/login">Forgot?</a>
                 <a class="sub1" href="">Change</a>
             </div>
             <!-- <input class="unit1" type="button" [value]=sign2> -->
             <button class="unit1" type="submit">SIGN IN</button>
-            <div class="unit1 subun1">
+            <div class="subOne">
                 <a class="sub1 two" (click)="signUpIn()">Don't have an account yet?</a>
             </div>
         </form>
     </div>
+
     <div class="one" *ngIf="!conditional1">
         <div class="cont1" >
             <h2 class="ttl">Sign Up</h2>
             <!-- <h2 class="ttl" *ngIf="!conditional1">Sign Up</h2> -->
             <form class="cont2" #regis="ngForm" (ngSubmit)="register(regis)">
-                <div><input class="unit1" type="text" name="username"   placeholder=" Username"  [(ngModel)]="usrn1" ></div>
-                <div><input class="unit1" type="text" name="email"      placeholder=" Email"     [(ngModel)]="eml1"  ></div>
-                <div><input class="unit1" type="text" name="password"   placeholder=" Password"  [(ngModel)]="ctr1"  ></div>
+                <input class="unit1" type="text" name="username"   placeholder="Username"  [(ngModel)]="usrn1" >
+                <input class="unit1" type="text" name="email"      placeholder="Email"     [(ngModel)]="eml1"  >
+                <input class="unit1" type="text" name="password"   placeholder="Password"  [(ngModel)]="ctr1"  >
                 <!-- <input class="unit1" type="button" [value]=sign2> -->
                 <button class="unit1" type="submit">SIGN UP</button>
-                <div class="unit1 subun1">
+                <div class="subOne">
                     <a class="sub1 two" (click)="signUpIn()">Already have an account?</a>
                 </div>
             </form>
         </div>
     </div>
+
 </div>

@@ -1,8 +1,17 @@
 <div class="container13">
-    <!-- <div class="section1"></div>
+    <div class="section1">
+        <p class="statusPage">{{statusPage}}</p>
+    </div>
     <div class="section2"></div>
     <div class="section3">
-        <p (click)="logout()">Logout</p>
+        <img class="menuIcon" src="../../../assets/img/menuIcon.svg" (click)="changeTopMenu()">
+        <ul class="menu" *ngIf="menu" @slide>
+            <li>Extra</li>
+            <p (click)="logout()">Logout</p>
+        </ul>
+    </div>
+
+    
+    <!-- <div class="topMenu">
     </div> -->
-    <img class="menuIcon" src="../../../assets/img/menuIcon.svg" >
 </div>

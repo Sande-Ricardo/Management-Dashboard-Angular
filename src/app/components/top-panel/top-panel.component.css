@@ -7,12 +7,30 @@
     height: 4.5rem;
     border-radius: 1.5rem 0 0 1.5rem;
     box-shadow: 0 0 .7rem rgba(2, 2, 2, 0.79);
-    display: flex;
-    flex-direction: row;
-    align-items: center;
+    /* display: flex; */
+    /* flex-direction: row;
+    align-items: center; */
+    display: grid;
+    grid-template-columns: 1fr 3fr 1.4fr;
 }
+.container13 > *{
+    position: relative;
+    display: flex;
+    align-items: center;
+    /* border: 1px blue solid; */
+}
+
 .section1{
 
+}
+.statusPage{
+    color: var(--prm3);
+    font-weight:900;
+    font-size: 1rem;
+    letter-spacing: 1px;
+    position: absolute;
+    left: .5rem;
+    /* top: 3px; */
 }
 
 .section2{
@@ -29,6 +47,51 @@
     height: 1.5rem;
     width: 1.5rem;
 }
+
+.menu{
+    position: absolute;
+    background-color: var(--prm1);
+    right: 3rem;
+    width: 10rem;
+    height: 100%;
+    padding: .5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    /* animation: emerge .3s;
+    animation-timing-function: ease-out; */
+}
+
+.menu > *{
+    display: flex;
+    height: 1.2rem;
+    width: 100%;
+    border: solid 1px var(--prm5);
+    border-radius: .5rem;
+    font-size: .7rem;
+    justify-content: center;
+    align-items: center;
+    color: var(--prm5);
+    transition: ease .5s;
+    list-style-type: none;
+    margin: 2px 0 2px 0;
+}
+.menu > *:hover{
+    background-color: var(--prm4);
+    color: white;
+}
+
+
+@keyframes emerge {
+    0% {
+        top: -100%;
+    }
+    100% {
+        top: 0;
+    }
+}
+
 
 @media(max-width:450px){
     .container13{

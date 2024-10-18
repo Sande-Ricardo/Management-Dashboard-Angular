@@ -33,9 +33,9 @@ export class LoginComponent implements OnInit {
   conditional1:boolean = true;
   signU_I:string = "Don't have an account yet?";
 
-  // ------------------------- Observables ---------------------------------  usarlos para obtener la información de usuario y para identificar el estado de login (respectiamente)
+// -----------------------------  Observables  ---------------------------------  usarlos para obtener la información de usuario y para identificar el estado de login (respectiamente)
   login$:Observable<boolean>
-  // -----------------------------------------------------------------------
+//-------------------------------  Variables  ----------------------------------
   log:boolean = false;
 
 
@@ -43,15 +43,15 @@ export class LoginComponent implements OnInit {
   eml1:any;
   ctr1:any;
   
+  errorEmailOrPassword:boolean = false;
+  
 
-
+//--------------------------------  Methods  -----------------------------------
   signUpIn(){
     // para cambiar el condicional de formato login/up
     this.conditional1 = !this.conditional1;
     // window.location.reload();
   };
-
-
   
   // Create
   
@@ -74,7 +74,7 @@ export class LoginComponent implements OnInit {
     login(form:NgForm){
       const email=form.value.email;
       const password=form.value.password;
-      this.loginSv.login(email,password);
+      this.errorEmailOrPassword = this.loginSv.login(email,password);
     };
 
     

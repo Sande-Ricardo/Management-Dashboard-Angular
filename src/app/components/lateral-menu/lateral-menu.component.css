@@ -68,9 +68,9 @@
 
 .headlines {
     margin-top: .5rem;
-    width: 80%;
-    left: 15%;
-
+    width: 95%;
+    left: 0;
+    padding-left: 15%;
     overflow-y: auto;
     overflow-x: hidden;
 }
@@ -86,7 +86,7 @@
 .itemSelected {
     position: relative;
     color: white;
-    animation: selectedItem .2s ease-in;
+    animation: selectedItem .2s ease;
 
 }
 
@@ -101,7 +101,7 @@
     background-color: white;
     height: 1.8rem;
 
-    animation: selectedBefore .2s ease-in;
+    /* animation: selectedBefore .2s ease-in; */
 }
 
 .add {
@@ -109,9 +109,8 @@
     position: fixed;
     bottom: 1rem;
     right: 1rem;
-    /* background-color: aqua; */
-
 }
+
 
 .activate {
     background-image: linear-gradient(to right, var(--primary), rgba(0, 0, 0, .01));

@@ -62,6 +62,8 @@ export class LocalStorageService {
   logout(){
     this.setUser = "";
     this.setLogin = false;
+    this.setChatbotAnswers = [];
+    this.setChatbotQuestions = [];
     console.log("Logout");
   }
 }

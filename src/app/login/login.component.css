@@ -8,29 +8,40 @@
 } */
 
 .container{
-    width: 100%;
+    width: 100vw;
     height: 100vh;
     display: grid;
     justify-content: center;
     align-items: center;
-    background-color: var(--seventh);
+    background-color: var(--prm4);
     position: relative;
+    overflow: hidden;
 
     /* top:6rem; */
 }
 .cont1{
+    position: relative;
     height: 40rem;
     width: 20rem;
     /* border: rgb(163, 163, 163) solid; */
     border-radius: 2rem;
-    box-shadow: 4rem -4rem 4rem 1rem rgb(204, 203, 203) inset;
-    /* background-color: red; */
+    /* box-shadow: 1rem -1rem 1rem 0rem var(--prm3) inset; */
+    background-color:var(--prm1);
 
     display: flex;
     flex-direction: column;
     /* gap: 16px; */
     justify-content: center;
 }
+
+.error{
+    font-size: .8rem;
+    color: red;
+    position: absolute;
+    right: .6rem;
+    width: fit-content;
+}
+
 .one{
     display: flex;
     justify-content: center;
@@ -44,7 +55,29 @@
     position: relative;
     left: 5rem;
     margin-bottom: 3rem;
+    color: var(--prm4);
 }
+
+form > input{
+    padding-left: 4px;
+    border: solid var(--prm2) 2px;
+    outline: none;
+    color: var(--prm4);
+}
+form > input:focus{
+    box-shadow: 0 0 8px 2px var(--prm2);
+}
+form > input::placeholder{
+    color: var(--prm3);
+}
+form > button{
+    border: none;
+    /* outline: none; */
+    background-color: var(--prm4);
+    color: var(--prm1);
+
+}
+
 .two{
     min-width: 13rem;
     height: 1.6rem;
@@ -59,16 +92,17 @@
     margin: 1rem .4rem 1rem .4rem;
     border-radius: .4rem;
 }
-.subun1{
-    background-color:rgba(1, 1, 1, 0);
+.subOne{
+    position: absolute;
     display: flex;
     justify-content: center;
-    margin: -.2rem 0 -2.8rem 0;
+    /* margin: -.2rem 0 -2.8rem 0; */
 }
 .sub1{
-    margin: -1rem 5.5rem 0rem 5.5rem ;
-    font-size: .9rem;
-    color: rgb(61, 61, 61);
+    margin: -.9rem 5.5rem 0rem 5.5rem ;
+    font-size: .94rem;
+    color: var(--prm4);
     /* margin-right: 2rem;
     margin-left: 2rem; */
 }
+

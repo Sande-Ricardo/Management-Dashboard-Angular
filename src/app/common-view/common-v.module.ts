@@ -15,6 +15,8 @@ import { ClockComponent } from '../components/clock/clock.component';
 import { FlashcardsComponent } from '../components/flashcards/flashcards.component';
 import { LateralMenuComponent } from '../components/lateral-menu/lateral-menu.component';
 import { TopPanelComponent } from '../components/top-panel/top-panel.component';
+// import { BrowserModule } from '@angular/platform-browser';
+// import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -34,6 +36,8 @@ import { TopPanelComponent } from '../components/top-panel/top-panel.component';
     CommonVRoutingModule,
     FormsModule,
     MarkdownModule.forRoot()
+    // BrowserModule,
+    // BrowserAnimationsModule
   ],
   exports:[
     CommonViewComponent
