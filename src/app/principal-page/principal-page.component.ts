@@ -28,6 +28,8 @@ export class PrincipalPageComponent implements OnInit {
     // this.user=localStorageSv.getUser
     // this.headlines=this.user.headlines
 
+    console.log(this.localStorageSv.getLogin);
+
     if (!this.localStorageSv.getLogin) {
       this.redirect(this.urlLogin);
     }

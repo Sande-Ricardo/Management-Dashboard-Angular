@@ -44,6 +44,7 @@ export class LoginComponent implements OnInit {
   ctr1:any;
   
   errorEmailOrPassword:boolean = false;
+  invalidShield:boolean = false;
   
 
 //--------------------------------  Methods  -----------------------------------
@@ -62,19 +63,28 @@ export class LoginComponent implements OnInit {
       form.value.password,
       "Name","Lastname",
       [new Headline("First Headline",[new Task("Task","Content")])]
-
     );
-    this.loginSv.register(user);
-    this.signUpIn()
+    if( !user.username || !user.email || !user.password){
+      console.error("some invalid shield")
+    } else {
+      this.loginSv.register(user);
+      this.signUpIn()
+    }
   };
   
   
   // Read
     
     login(form:NgForm){
-      const email=form.value.email;
-      const password=form.value.password;
-      this.errorEmailOrPassword = this.loginSv.login(email,password);
+      if( !form.value.email || !form.value.password){
+        console.error("invalid shield")
+        this.invalidShield = true;
+      } else {
+        this.invalidShield = false;
+        const email=form.value.email;
+        const password=form.value.password;
+        this.errorEmailOrPassword = this.loginSv.login(email,password);
+      }
     };
 
     

@@ -39,7 +39,7 @@ export class LoginService {
   
   // --------------------------------- Url -------------------------------------
   private urlUser = 'http://localhost:8080/user';
-  private urlWorkspace = '/home/base';
+  private urlWorkspace = '';
 
 
 // ------------------------ Observable LoginStatus -----------------------------
@@ -57,6 +57,8 @@ export class LoginService {
     if(this.observableLogin){
       this.router.navigate([this.urlWorkspace]);
     }
+
+    // this.router.navigate([this.urlWorkspace]);
   }
   
   
@@ -64,7 +66,7 @@ export class LoginService {
   register(usr:User){
     this.http.post(this.urlUser + '/set', usr).subscribe(
       (data) => {return data}
-    );
+    )
   };
 
   login(email:string, password:string):boolean{
@@ -76,7 +78,8 @@ export class LoginService {
           this.localStorageSv.setUser = data as User;
           this.localStorageSv.setLogin = true;
           this.redirect();
-          location.reload()
+          location.reload();
+          // console.log(1);
           return false;
         },
         error:(error)=>{

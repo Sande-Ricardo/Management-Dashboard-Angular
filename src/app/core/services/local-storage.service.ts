@@ -60,10 +60,14 @@ export class LocalStorageService {
   // }
 
   logout(){
+    this.cleanLocalStorage();
+    console.log("Logout");
+  }
+
+  cleanLocalStorage(){
     this.setUser = "";
     this.setLogin = false;
     this.setChatbotAnswers = [];
     this.setChatbotQuestions = [];
-    console.log("Logout");
   }
 }

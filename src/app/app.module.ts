@@ -8,10 +8,12 @@ import { CookieService } from 'ngx-cookie-service';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CoreModule } from './core/core.module';
+import { EmergencyCleanerComponent } from './components/emergency-cleaner/emergency-cleaner.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    EmergencyCleanerComponent
   ],
   imports: [
     BrowserModule,

@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { EmergencyCleanerComponent } from './components/emergency-cleaner/emergency-cleaner.component';
 // import { PrincipalPageComponent } from './principal-page/principal-page.component';
 
 const routes: Routes = [
@@ -10,7 +11,7 @@ const routes: Routes = [
   },
   // Lazy loading (loadChildren)
   {
-    path:'home',
+    path:'',
     loadChildren: () =>
       import('./common-view/common-v.module').then((m)=> m.CommonVModule)
   },
@@ -23,6 +24,9 @@ const routes: Routes = [
     path:'login',
     loadChildren: () =>
       import('./login/login.module').then((m)=> m.LoginModule)
+  },
+  {
+    path:'clean_local_storage', component: EmergencyCleanerComponent
   }
   // {path:'home', component:AppComponent},
   // {

@@ -8,7 +8,7 @@ import { CommonViewComponent } from './common-view.component';
 const routes: Routes = [
   // {path:'principal', component:PrincipalPageComponent},
   {path:'', component:CommonViewComponent, children:[
-    { path: 'base',  component: PrincipalPageComponent }
+    { path: '',  component: PrincipalPageComponent }
   ]},
 ];
 

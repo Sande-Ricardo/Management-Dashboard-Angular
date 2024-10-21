@@ -1,11 +1,11 @@
 <div class="container">
-
     <div class="cont1" *ngIf="conditional1">
         <h2 class="ttl" (click)="loginStatus()">Sign In</h2>
         <!-- <p>{{(login$ | async)}}</p> -->
         <!-- <h2 class="ttl" *ngIf="!conditional1">Sign Up</h2> -->
         <form class="cont2" #log="ngForm" (ngSubmit)="login(log)">
             <p class="error" *ngIf="errorEmailOrPassword">Invalid email or password</p>
+            <p class="error" *ngIf="invalidShield">Invalid shield</p>
             <input class="unit1" type="text" name="email"      placeholder="Email"    [(ngModel)]="usrn1">
             <input class="unit1" type="text" name="password"   placeholder="Password"  [(ngModel)]="ctr1"  >
             <div class="subOne">
@@ -18,6 +18,8 @@
                 <a class="sub1 two" (click)="signUpIn()">Don't have an account yet?</a>
             </div>
         </form>
+
+        <!-- <p style="position: absolute; top: 0; color: white;" *ngIf="errorEmailOrPassword">*</p> -->
     </div>
 
     <div class="one" *ngIf="!conditional1">
