@@ -27,9 +27,6 @@ export class PrincipalPageComponent implements OnInit {
 
     // this.user=localStorageSv.getUser
     // this.headlines=this.user.headlines
-
-    console.log(this.localStorageSv.getLogin);
-
     if (!this.localStorageSv.getLogin) {
       this.redirect(this.urlLogin);
     }
@@ -39,20 +36,21 @@ export class PrincipalPageComponent implements OnInit {
 
   // user$:Observable<User>
 
-  // --------------------------------- Url -------------------------------------
+// --------------------------------------------- Url -----------------------------------------------
   private urlLogin = '/login';
 
-  // ------------------------------ Variables ----------------------------------
+// ------------------------------------------ Variables --------------------------------------------
   displayN: string = 'display1';
   expand: boolean = false;
   display: string[] = ['', '', '', ''];
   displayM: string[] = ['', 'displayNoneM', 'displayNoneM', 'displayNoneM'];
 
+  enableEdit:boolean = false;
   // user!:User;
   // headlines!:Headline[];
   // tasks!:Task[];
   // taskTittles!:string[];
-  // ---------------------------------------------------------------------------
+// -----------------------------------------  Methods  ---------------------------------------------
 
   changeExpand() {
     this.expand = !this.expand;
@@ -62,6 +60,9 @@ export class PrincipalPageComponent implements OnInit {
     if (n == 1) {
       this.display = ['', '', '', ''];
       this.displayM = ['', 'displayNoneM', 'displayNoneM', 'displayNoneM'];
+      this.editing(false)
+    } else if (n == 3) {
+      this.editing(true)
     }
     this.displayN = 'display' + n;
     console.log(this.displayN);
@@ -79,6 +80,10 @@ export class PrincipalPageComponent implements OnInit {
       'displayNoneM',
     ];
     this.displayM[n] = '';
+  }
+
+  editing (bool:boolean){
+    this.enableEdit = bool;
   }
 
   redirect(path: string) {

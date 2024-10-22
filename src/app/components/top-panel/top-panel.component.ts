@@ -34,8 +34,16 @@ export class TopPanelComponent implements OnInit {
 
 // -----------------------------------------  Methods  ---------------------------------------------
   logout(){
-    this.loginSv.logout();
-    location.reload()
+    this.loginSv.logout()
+      .then(()=>{
+        location.reload()
+      })
+      .catch(error => {
+        console.error(error);
+      });
+    // setTimeout(() => {
+    //   location.reload()
+    // },1000)
   };
 
   changeTopMenu(){

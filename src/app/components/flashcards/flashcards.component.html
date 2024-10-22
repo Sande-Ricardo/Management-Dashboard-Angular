@@ -2,13 +2,23 @@
     <div class="decorate"*ngIf="title.length != 0"></div>
     <div class="subcontainer">
         <span class="title"> 
-            <p>{{title[index]}}</p>
+            <!-- <p>{{title[index]}}</p> -->
+            <p class="textC5" *ngIf="!textInput">{{(flashcards[index].title)}}</p>
+            <input class="editText textC3" [(ngModel)]="flashcards[index].title" *ngIf="textInput">
         </span>
         <div class="content">
-            <p>{{content[index]}}</p>
+            <!-- <p>{{content[index]}}</p> -->
+            <p class="textC5" *ngIf="!textInput">{{(flashcards[index].content)}}</p>
+            <textarea class="editText textC3" [(ngModel)]="flashcards[index].content" *ngIf="textInput"></textarea>
         </div>
-        <div class="btn left" (click)="changeCard(false)">  </div>
-        <div class="btn right" (click)="changeCard(true)">  </div>
+        <div class="slide left" (click)="changeCard(false)">  </div>
+        <div class="slide right" (click)="changeCard(true)">  </div>
+        
+        <div class="editMode" *ngIf="editing">
+            <span class="btn switchTextInput" (click)="editFlashcard()"></span>
+            <span class="btn addCard" (click)="addFlashcard()"></span>
+            <span class="btn delCard" (click)="delFlashcard()"></span>
+        </div>
     </div>
 
 </div>

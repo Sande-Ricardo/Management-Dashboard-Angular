@@ -9,7 +9,7 @@ export class Headline{
     constructor (cont:string, tasks?:Task[],id?:number){
         this.content=cont;
 
-        if(tasks){this.tasks=tasks}
+        if(tasks){this.tasks=tasks};
         if(id){this.idHeadline=id};
     }
 }

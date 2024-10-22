@@ -102,18 +102,21 @@ export class LoginService {
   };
   
 // --------------------------------  logout  -----------------------------------
-  logout(){
+  async logout(){
+    let user:User = this.localStorageSv.getUser;
+    this.localStorageSv.logout();
     try{
-      let user:User = this.localStorageSv.getUser;
       this.http.post(this.urlUser + '/update/' + user.idUser.toString(), user).subscribe(
         data=>{
-          return data
+          console.log(data);
+          return true;
         }
       )
     } catch (error) {
       console.error(error);
-    }
-    this.localStorageSv.logout();
+      return null;
+    } 
+    return false;
   };
 
 

@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
+import { Flashcard } from 'src/app/model/Flashcard';
 import { Headline } from 'src/app/model/Headline';
 import { Task } from 'src/app/model/Task';
 import { User } from 'src/app/model/User';
@@ -75,6 +76,21 @@ export class SharingService {
   delTask(i:number){
     this.userObservable.subscribe(data=>{
       data.headlines[this.headlineIndex].tasks.splice(i,1)
+    });
+    this.updateUser();
+  }
+
+  addFlashcard(i:number){
+    this.userObservable.subscribe(data=>{
+      data.flashCards.splice(
+        i,0, new Flashcard("Title","Content")
+      )
+    });
+    this.updateUser();
+  }
+  delFlashcard(i:number){
+    this.userObservable.subscribe(data=>{
+      data.flashCards.splice(i,1)
     });
     this.updateUser();
   }
