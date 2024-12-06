@@ -1,13 +1,11 @@
 <div class="container251">
     <div class="decorate"*ngIf="title.length != 0"></div>
     <div class="subcontainer">
-        <span class="title"> 
-            <!-- <p>{{title[index]}}</p> -->
+        <span class="title" *ngIf="flashcards.length != 0">
             <p class="textC5" *ngIf="!textInput">{{(flashcards[index].title)}}</p>
             <input class="editText textC3" [(ngModel)]="flashcards[index].title" *ngIf="textInput">
         </span>
-        <div class="content">
-            <!-- <p>{{content[index]}}</p> -->
+        <div class="content" *ngIf="flashcards.length != 0">
             <p class="textC5" *ngIf="!textInput">{{(flashcards[index].content)}}</p>
             <textarea class="editText textC3" [(ngModel)]="flashcards[index].content" *ngIf="textInput"></textarea>
         </div>

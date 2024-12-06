@@ -3,6 +3,7 @@ import { NgForm } from '@angular/forms';
 import { Observable } from 'rxjs';
 import { LocalStorageService } from '../core/services/local-storage.service';
 import { LoginService } from '../core/services/login.service';
+import { Flashcard } from '../model/Flashcard';
 import { Headline } from '../model/Headline';
 import { Task } from '../model/Task';
 import { User } from '../model/User';
@@ -62,7 +63,8 @@ export class LoginComponent implements OnInit {
       form.value.email,
       form.value.password,
       "Name","Lastname",
-      [new Headline("First Headline",[new Task("Task","Content")])]
+      [new Headline("First Headline",[new Task("Task","Content")])],
+      [new Flashcard("Title","Content")],
     );
     if( !user.username || !user.email || !user.password){
       console.error("some invalid shield")

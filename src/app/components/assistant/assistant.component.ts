@@ -36,8 +36,9 @@ answers!:string[];
 
 // ---------------------------------------- Methods ------------------------------------------------
   async consult() {
-    const API_KEY = 'AIzaSyBZj-3belUwS6vehWUEwPuf-RDRWI4MbfY';
+    // const API_KEY = 'AIzaSyBZj-3belUwS6vehWUEwPuf-RDRWI4MbfY';
     // const API_KEY = 'AIzaSyBZj-3belUwS6vehWUEwPuf-RDRWI4MbsY';
+    const API_KEY = 'AIzaSyBZj-3belUwS6vehWUEwPuf-RDRWI4MbfY';
 
     // Acceder al GoogleGenerativeAI desde el objeto global "window"
     const GoogleGenerativeAI = (window as any).GoogleGenerativeAI;

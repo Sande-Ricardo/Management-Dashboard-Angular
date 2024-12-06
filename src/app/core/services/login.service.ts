@@ -106,16 +106,21 @@ export class LoginService {
     let user:User = this.localStorageSv.getUser;
     this.localStorageSv.logout();
     try{
+      console.log("anduvo");
+      
       this.http.post(this.urlUser + '/update/' + user.idUser.toString(), user).subscribe(
         data=>{
           console.log(data);
+          location.reload();
           return true;
         }
       )
     } catch (error) {
+      console.log("no anduvo");
+      
       console.error(error);
       return null;
-    } 
+    }
     return false;
   };
 

@@ -36,7 +36,7 @@ export class TopPanelComponent implements OnInit {
   logout(){
     this.loginSv.logout()
       .then(()=>{
-        location.reload()
+        // location.reload()
       })
       .catch(error => {
         console.error(error);

@@ -16,10 +16,14 @@ export class FlashcardsComponent implements OnInit {
   constructor(
     public sharingSv:SharingService
   ) {
-    this.user$.subscribe(data =>{
-      console.log("Set Flashcards in FlashcardsComponent");
-      this.flashcards = data.flashCards;
+      this.user$.subscribe(data =>{
+        console.log("Set Flashcards in FlashcardsComponent");
+        this.flashcards = data.flashCards;
     })
+    
+    if (this.flashcards.length == 0){
+      this.delFlashcard();
+    }
     
   }
 
