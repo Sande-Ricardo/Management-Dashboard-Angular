@@ -1,5 +1,6 @@
 import { Flashcard } from "./Flashcard";
 import { Headline } from "./Headline";
+import { RoleRequest } from "./roleRequest";
 
 export class User{
     idUser!: number;
@@ -13,6 +14,8 @@ export class User{
     headlines!:Headline[];
     flashCards!:Flashcard[];
 
+    roleRequest:RoleRequest;
+
 
     constructor (uName:string, email:string, pass:string, name?:string, lName?:string, headlines?:Headline[], flashcard?:Flashcard[], id?:number){
         this.username=uName;
@@ -25,5 +28,9 @@ export class User{
         if(headlines){this.headlines=headlines};
         if(flashcard){this.flashCards=flashcard};
         if(id){this.idUser=id;}
+
+        this.roleRequest = new RoleRequest(["USER"])
     }
+
+
 }

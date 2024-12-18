@@ -39,6 +39,7 @@ export class LoginService {
   
   // --------------------------------- Url -------------------------------------
   private urlUser = 'http://localhost:8080/user';
+  private urlAuth = 'http://localhost:8080/auth';
   private urlWorkspace = '';
 
 
@@ -64,26 +65,40 @@ export class LoginService {
   
 // ------------------------------- log in/up -----------------------------------
   register(usr:User){
-    this.http.post(this.urlUser + '/set', usr).subscribe(
-      (data) => {return data}
+    // this.http.post(this.urlUser + '/set', usr).subscribe(
+    //   (data) => {return data}
+    // )
+    // usr.roles.push("USER")
+    console.log(usr);
+    
+    this.http.post(this.urlAuth + '/register', usr).subscribe(
+      (data) => {
+        console.log(data);
+      
+        return data}
     )
   };
+  
 
-  login(email:string, password:string):boolean{
-    this.http.get(this.urlUser + '/login/' + email + '/' + password)
-      .pipe(
-        catchError(this.errorHandler)
-      ).subscribe({
-        next: (data) => {
-          this.localStorageSv.setUser = data as User;
-          this.localStorageSv.setLogin = true;
-          this.redirect();
-          location.reload();
-          // console.log(1);
-          return false;
-        },
-        error:(error)=>{
-          console.log(error)
+  login(username:string, password:string):boolean{
+      // this.http.post(this.urlAuth + '/login', username)
+
+      // return true;
+      
+      this.http.get(this.urlUser + '/login/' + email + '/' + password)
+        .pipe(
+            catchError(this.errorHandler)
+          ).subscribe({
+              next: (data) => {
+                  this.localStorageSv.setUser = data as User;
+                  this.localStorageSv.setLogin = true;
+                  this.redirect();
+                  location.reload();
+                  // console.log(1);
+                  return false;
+                },
+                error:(error)=>{
+                    console.log(error)
           return true;
         }
       })
