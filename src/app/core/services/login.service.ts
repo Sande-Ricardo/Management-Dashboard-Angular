@@ -2,6 +2,7 @@ import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { BehaviorSubject, catchError, throwError } from 'rxjs';
+import { LoginRequest } from 'src/app/model/LoginRequest';
 import { User } from 'src/app/model/User';
 import { LocalStorageService } from './local-storage.service';
 
@@ -80,29 +81,47 @@ export class LoginService {
   };
   
 
-  login(username:string, password:string):boolean{
-      // this.http.post(this.urlAuth + '/login', username)
-
-      // return true;
-      
-      this.http.get(this.urlUser + '/login/' + email + '/' + password)
-        .pipe(
-            catchError(this.errorHandler)
-          ).subscribe({
-              next: (data) => {
-                  this.localStorageSv.setUser = data as User;
-                  this.localStorageSv.setLogin = true;
-                  this.redirect();
-                  location.reload();
-                  // console.log(1);
-                  return false;
-                },
-                error:(error)=>{
-                    console.log(error)
+  login(email:string, password:string):boolean{
+    this.http.post(this.urlAuth + '/login', new LoginRequest(email, password))
+      .pipe(
+        catchError(this.errorHandler)
+      ).subscribe({
+        next: (data) => {
+          console.log("data");
+          console.log(data);
+          this.localStorageSv.setUser = data as User;
+          this.localStorageSv.setLogin = true;
+          this.redirect();
+          location.reload();
+          return false;
+        },
+        error: (error) => {
+          console.log("error");
+          console.log(error);
           return true;
         }
       })
-      return true;
+
+    return true;
+      
+      // this.http.get(this.urlUser + '/login/' + email + '/' + password)
+      //   .pipe(
+      //       catchError(this.errorHandler)
+      //     ).subscribe({
+      //         next: (data) => {
+      //             this.localStorageSv.setUser = data as User;
+      //             this.localStorageSv.setLogin = true;
+      //             this.redirect();
+      //             location.reload();
+      //             // console.log(1);
+      //             return false;
+      //           },
+      //           error:(error)=>{
+      //               console.log(error)
+      //     return true;
+      //   }
+      // })
+      // return true;
     // alternativa
     // this.http.get(this.urlUser + '/login/' + email + '/' + password).subscribe(data => {
     //   if(data == null){

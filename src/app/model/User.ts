@@ -16,6 +16,8 @@ export class User{
 
     roleRequest:RoleRequest;
 
+    jwt!:string;
+
 
     constructor (uName:string, email:string, pass:string, name?:string, lName?:string, headlines?:Headline[], flashcard?:Flashcard[], id?:number){
         this.username=uName;
