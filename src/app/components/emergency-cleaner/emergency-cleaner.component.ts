@@ -4,7 +4,9 @@ import { LocalStorageService } from 'src/app/core/services/local-storage.service
 
 @Component({
   selector: 'app-emergency-cleaner',
-  template: ''
+  template: '',
+  // change
+  standalone:false
 })
 export class EmergencyCleanerComponent implements OnInit {
 

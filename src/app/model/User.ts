@@ -3,7 +3,7 @@ import { Headline } from "./Headline";
 import { RoleRequest } from "./roleRequest";
 
 export class User{
-    idUser!: number;
+    id!: number;
     name!:string;
     last_name!:string;
 
@@ -29,7 +29,7 @@ export class User{
         // lName ? this.last_name=lName;
         if(headlines){this.headlines=headlines};
         if(flashcard){this.flashCards=flashcard};
-        if(id){this.idUser=id;}
+        if(id){this.id=id};
 
         this.roleRequest = new RoleRequest(["USER"])
     }

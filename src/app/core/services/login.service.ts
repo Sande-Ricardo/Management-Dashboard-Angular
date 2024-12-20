@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { BehaviorSubject, catchError, throwError } from 'rxjs';
 import { LoginRequest } from 'src/app/model/LoginRequest';
 import { User } from 'src/app/model/User';
+import { JwtService } from './jwt.service';
 import { LocalStorageService } from './local-storage.service';
 
 @Injectable({
@@ -14,6 +15,7 @@ export class LoginService {
     private http:HttpClient,
     private router:Router,
     private localStorageSv:LocalStorageService,
+    private jwtSv:JwtService
   ){
     // this.user$ = this.observableUser;
     // console.log("UserData: ")
@@ -91,6 +93,12 @@ export class LoginService {
           console.log(data);
           this.localStorageSv.setUser = data as User;
           this.localStorageSv.setLogin = true;
+          
+          let user:User = data as User;
+          console.log(user.jwt);
+          this.jwtSv.jwt = user.jwt;
+          
+
           this.redirect();
           location.reload();
           return false;
@@ -142,7 +150,7 @@ export class LoginService {
     try{
       console.log("anduvo");
       
-      this.http.post(this.urlUser + '/update/' + user.idUser.toString(), user).subscribe(
+      this.http.post(this.urlUser + '/update/' + user.id.toString(), user).subscribe(
         data=>{
           console.log(data);
           location.reload();
@@ -153,6 +161,11 @@ export class LoginService {
       console.log("no anduvo");
       
       console.error(error);
+
+      console.log(user);
+      console.log(user.id);
+      
+      
       return null;
     }
     return false;
