@@ -41,8 +41,10 @@ export class LoginService {
 
   
   // --------------------------------- Url -------------------------------------
-  private urlUser = 'http://localhost:8080/user';
-  private urlAuth = 'http://localhost:8080/auth';
+  // private urlUser = 'http://localhost:8080/user';
+  // private urlAuth = 'http://localhost:8080/auth';
+  private urlUser = 'https://management-dashboard-springboot.onrender.com/user';
+  private urlAuth = 'https://management-dashboard-springboot.onrender.com/auth';
   private urlWorkspace = '';
 
 
