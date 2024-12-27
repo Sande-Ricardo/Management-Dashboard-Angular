@@ -42,7 +42,9 @@ export class LoginService {
   
   // --------------------------------- Url -------------------------------------
   // private base = 'http://localhost:8080'
-  private base = 'https://management-dashboard-springboot.onrender.com'
+  // private base = 'https://management-dashboard-springboot.onrender.com'
+  private base = 'https://m-dashboard-8hn2.onrender.com'
+
 
   private urlUser = this.base + '/user';
   private urlAuth = this.base + '/auth';
