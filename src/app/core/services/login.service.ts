@@ -41,10 +41,11 @@ export class LoginService {
 
   
   // --------------------------------- Url -------------------------------------
-  // private urlUser = 'http://localhost:8080/user';
-  // private urlAuth = 'http://localhost:8080/auth';
-  private urlUser = 'https://management-dashboard-springboot.onrender.com/user';
-  private urlAuth = 'https://management-dashboard-springboot.onrender.com/auth';
+  // private base = 'http://localhost:8080'
+  private base = 'https://management-dashboard-springboot.onrender.com'
+
+  private urlUser = this.base + '/user';
+  private urlAuth = this.base + '/auth';
   private urlWorkspace = '';
 
 
@@ -74,11 +75,11 @@ export class LoginService {
     //   (data) => {return data}
     // )
     // usr.roles.push("USER")
-    console.log(usr);
+    // console.log(usr);
     
     this.http.post(this.urlAuth + '/register', usr).subscribe(
       (data) => {
-        console.log(data);
+        // console.log(data);
       
         return data}
     )
@@ -91,13 +92,13 @@ export class LoginService {
         catchError(this.errorHandler)
       ).subscribe({
         next: (data) => {
-          console.log("data");
-          console.log(data);
+          // console.log("data");
+          // console.log(data);
           this.localStorageSv.setUser = data as User;
           this.localStorageSv.setLogin = true;
           
           let user:User = data as User;
-          console.log(user.jwt);
+          // console.log(user.jwt);
           this.jwtSv.jwt = user.jwt;
           
 
@@ -106,8 +107,9 @@ export class LoginService {
           return false;
         },
         error: (error) => {
-          console.log("error");
-          console.log(error);
+          // console.log("error");
+          // console.log(error);
+          console.error(error);
           return true;
         }
       })
@@ -149,25 +151,20 @@ export class LoginService {
   async logout(){
     let user:User = this.localStorageSv.getUser;
     this.localStorageSv.logout();
+    
     try{
-      console.log("anduvo");
+      // console.log("anduvo");
       
       this.http.post(this.urlUser + '/update/' + user.id.toString(), user).subscribe(
         data=>{
-          console.log(data);
+          // console.log(user);
           location.reload();
           return true;
         }
       )
     } catch (error) {
-      console.log("no anduvo");
-      
+      // console.log("no anduvo");
       console.error(error);
-
-      console.log(user);
-      console.log(user.id);
-      
-      
       return null;
     }
     return false;

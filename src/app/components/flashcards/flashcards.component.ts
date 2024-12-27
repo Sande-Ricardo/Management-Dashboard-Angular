@@ -17,7 +17,7 @@ export class FlashcardsComponent implements OnInit {
     public sharingSv:SharingService
   ) {
       this.user$.subscribe(data =>{
-        console.log("Set Flashcards in FlashcardsComponent");
+        // console.log("Set Flashcards in FlashcardsComponent");
         this.flashcards = data.flashCards;
     })
     
@@ -69,7 +69,7 @@ export class FlashcardsComponent implements OnInit {
       this.user$.subscribe(data=>{user=data});
       user.flashCards = this.flashcards;
       this.sharingSv.updateUser(user as User);
-      console.log("maniobra peligrosa");
+      // console.log("maniobra peligrosa");
     }else {
       this.sharingSv.updateUser();
     }

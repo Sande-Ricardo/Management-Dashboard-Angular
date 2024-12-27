@@ -12,7 +12,7 @@ export class CommonViewComponent implements OnInit {
   constructor(
     private localStorageSv:LocalStorageService
   ) {
-    console.log("Defining User");
+    // console.log("Defining User");
     this.user=this.localStorageSv.getUser
   }
 

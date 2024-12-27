@@ -93,7 +93,7 @@ export class LoginComponent implements OnInit {
 
     loginStatus(){
       this.login$.subscribe(data => console.log(data));
-      console.log(this.localStorageSv.getUser)
+      // console.log(this.localStorageSv.getUser)
     }
   
 

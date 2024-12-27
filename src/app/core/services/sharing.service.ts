@@ -45,7 +45,7 @@ export class SharingService {
         this.localStorageSv.setUser = data;
       })
     }
-    console.log("user updated");
+    // console.log("user updated");
   };
 
   changeHeadI(i:number){

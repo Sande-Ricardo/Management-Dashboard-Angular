@@ -54,7 +54,7 @@ answers!:string[];
       const result = await model.generateContent(this.inputText);
       // this.responseText = result.response.text();
       this.answers.push(result.response.text());
-      console.log("try");
+      // console.log("try");
       this.inputText = '';
 
       this.localStorageSv.setChatbotQuestions = this.questions;

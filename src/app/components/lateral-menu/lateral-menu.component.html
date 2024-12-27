@@ -46,7 +46,7 @@
         <div class="section"> Section </div>
         <div class="headlines">
                 <ul class="list">
-                        <li (click)="showHeadlines()">Show headlines</li>
+                        <!-- <li (click)="showHeadlines()">Show headlines</li> -->
                         <li *ngFor="let headline of (user$ | async)?.headlines, let i = index" (click)="setHeadlineI(i)" >
                                 <p *ngIf="i != sharingSv.headlineIndex" >{{headline.content}}</p>
                                 <p *ngIf="i == sharingSv.headlineIndex" class="itemSelected">{{headline.content}}</p>

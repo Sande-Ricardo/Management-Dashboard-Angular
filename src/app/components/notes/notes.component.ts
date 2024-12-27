@@ -15,7 +15,7 @@ export class NotesComponent implements OnInit {
     public sharingSv:SharingService
   ) {
     this.user$.subscribe(data => {
-      console.log("Set Tasks in NotesComponent");
+      // console.log("Set Tasks in NotesComponent");
       this.tasks = data.headlines[sharingSv.headlineIndex].tasks;
     })
 
@@ -42,7 +42,7 @@ export class NotesComponent implements OnInit {
       this.user$.subscribe(data=>{user=data});
       user.headlines[this.sharingSv.headlineIndex].tasks = this.tasks;
       this.sharingSv.updateUser(user as User);
-      console.log("maniobra peligrosa");
+      // console.log("maniobra peligrosa");
     }else {
       this.sharingSv.updateUser();
     }

@@ -9,7 +9,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { EmergencyCleanerComponent } from './components/emergency-cleaner/emergency-cleaner.component';
 import { CoreModule } from './core/core.module';
-import { JwtInterceptor } from './interceptors/JwtInterceptor';
+import { JwtInterceptor } from './interceptors/jwtInterceptor';
 
 @NgModule({
   declarations: [

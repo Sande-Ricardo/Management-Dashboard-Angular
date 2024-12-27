@@ -61,7 +61,7 @@ export class LocalStorageService {
 
   logout(){
     this.cleanLocalStorage();
-    console.log("Logout");
+    // console.log("Logout");
   }
 
   cleanLocalStorage(){

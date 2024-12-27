@@ -43,10 +43,10 @@ export class ListItemsComponent implements OnInit {
       this.user$.subscribe(data=>{user=data});
       user.headlines = this.headlines;
       this.sharingSv.updateUser(user as User);
-      console.log("maniobra peligrosa 2");
+      // console.log("maniobra peligrosa 2");
     }else {
       this.sharingSv.updateUser();
-      console.log("maniobra rara");
+      // console.log("maniobra rara");
     }
   }
   
