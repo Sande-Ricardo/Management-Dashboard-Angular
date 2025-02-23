@@ -32,6 +32,7 @@
     flex-direction: column;
     /* gap: 16px; */
     justify-content: center;
+    align-items: center;
 }
 
 .error{
@@ -39,7 +40,7 @@
     color: red;
     position: absolute;
     right: .6rem;
-    width: fit-content;
+    width: fit-ent;
 }
 
 .one{
@@ -53,13 +54,16 @@
     font-size: 2.6rem;
     font-weight: bold;
     position: relative;
-    left: 5rem;
-    margin-bottom: 3rem;
+    /* left: 5rem; */
+    /* margin-bottom: 3rem; */
+    width: 100%;
+    text-align: center;
     color: var(--prm4);
 }
 
+
 form > input{
-    padding-left: 4px;
+    /* padding-left: 4px; */
     border: solid var(--prm2) 2px;
     outline: none;
     color: var(--prm4);
@@ -87,9 +91,12 @@ form > button{
 }
 .unit1{
     height: 3rem;
-    width: 19rem;
+    /* width: 19rem; */
+    /* margin: 1rem .4rem; */
+
+    margin: 1rem 2.5%;
+    width: 95%;
     /* background-color: beige; */
-    margin: 1rem .4rem 1rem .4rem;
     border-radius: .4rem;
 }
 .subOne{
@@ -106,3 +113,12 @@ form > button{
     margin-left: 2rem; */
 }
 
+
+
+@media (max-width: 768px){
+    .cont1{
+        width: 100vw;
+        height: 100vh;
+        border-radius: 0;
+    }
+}
