@@ -16,7 +16,8 @@
     </div>
     <!-- <app-clock class="clock     "></app-clock> -->
     <div class="control ">
-        <div class="logo        bi bi-arrows-angle-expand" (click)="changeExpand()"></div>          <!-- apertura -->
+        <!-- <div class="logo        bi bi-arrows-angle-expand" (click)="changeExpand()"></div>          apertura -->
+        <div class="logo   expandIcon" (click)="changeExpand()"></div>          <!-- apertura -->
         <div class="subcont" *ngIf="expand" >
             <div class="logo    bi bi-card-checklist"       (click)="changeCard(0)" (click)="changeDisplay(3)" ><div class="cover" (click)="changeCardM(0)"></div></div>
             <div class="logo    bi bi-card-text"            (click)="changeCard(1)" (click)="changeDisplay(3)" ><div class="cover" (click)="changeCardM(1)"></div></div>

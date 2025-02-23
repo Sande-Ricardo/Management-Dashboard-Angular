@@ -107,6 +107,10 @@
     filter: drop-shadow(0 0rem .1rem rgb(0, 0, 0));
     /* background-color: rgb(2, 248, 248); */
 }
+.expandIcon{
+    background-image: url(../../assets/img/arrow.svg);
+    filter: invert(1);
+}
 
 .cover {
     display: none;
