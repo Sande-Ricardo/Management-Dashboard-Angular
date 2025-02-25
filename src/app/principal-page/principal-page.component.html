@@ -15,15 +15,46 @@
         <app-assistant></app-assistant>
     </div>
     <!-- <app-clock class="clock     "></app-clock> -->
-    <div class="control ">
-        <!-- <div class="logo        bi bi-arrows-angle-expand" (click)="changeExpand()"></div>          apertura -->
-        <div class="logo   expandIcon" (click)="changeExpand()"></div>          <!-- apertura -->
+    <!-- <div class="logo        bi bi-arrows-angle-expand" (click)="changeExpand()"></div>          apertura -->
+    <!-- <div class="control ">
+        <div class="logo   expandIcon" (click)="changeExpand()"></div>
         <div class="subcont" *ngIf="expand" >
             <div class="logo    bi bi-card-checklist"       (click)="changeCard(0)" (click)="changeDisplay(3)" ><div class="cover" (click)="changeCardM(0)"></div></div>
             <div class="logo    bi bi-card-text"            (click)="changeCard(1)" (click)="changeDisplay(3)" ><div class="cover" (click)="changeCardM(1)"></div></div>
             <div class="logo    bi bi-journal-arrow-down"   (click)="changeCard(2)" (click)="changeDisplay(3)" ><div class="cover" (click)="changeCardM(2)"></div></div>
             <div class="logo    bi bi-music-note-list"      (click)="changeCard(3)" (click)="changeDisplay(3)" ><div class="cover" (click)="changeCardM(3)"></div></div>
             <div class="logo    bi bi-music-note-list"      (click)="changeDisplay(1)" ><div class="cover" (click)="changeCardM(3)"></div></div>
+        </div>
+    </div> -->
+    <div class="control">
+        <div class="logo" (click)="changeControl()" ><img class="c1 invertFilter" [ngClass]="angle" src="assets/img/arrow.svg" alt="" ></div>
+        <div class="subcont" [ngClass]="control">
+            <!-- <div class="logo    bi bi-card-checklist"       ><div class="cover"></div></div>
+            <div class="logo    bi bi-card-text"            ><div class="cover" ></div></div>
+            <div class="logo    bi bi-journal-arrow-down"   ><div class="cover" ></div></div>
+            <div class="logo    bi bi-music-note-list"      ><div class="cover" ></div></div>
+            <div class="logo    bi bi-music-note-list"      ><div class="cover" ></div></div> -->
+            
+            <div class="logo"     (click)="changeCard(0)" (click)="changeDisplay(3)" >
+                <img src="../../assets/img/list-item.svg" alt="" class="invertFilter">
+                <div class="cover" (click)="changeCardM(0)"></div>
+            </div>
+            <div class="logo"     (click)="changeCard(1)" (click)="changeDisplay(3)" >
+                <img src="../../assets/img/text-field.svg" alt="" class="invertFilter">
+                <div class="cover" (click)="changeCardM(1)"></div>
+            </div>
+            <div class="logo"     (click)="changeCard(2)" (click)="changeDisplay(3)" >
+                <img src="../../assets/img/flashcards.svg" alt="" class="invertFilter">
+                <div class="cover" (click)="changeCardM(2)"></div>
+            </div>
+            <div class="logo"     (click)="changeCard(3)" (click)="changeDisplay(3)" >
+                <img src="../../assets/img/ai.svg" alt="" class="invertFilter">
+                <div class="cover" (click)="changeCardM(3)"></div>
+            </div>
+            <div class="logo displayNoneM"     (click)="changeDisplay(1)" >
+                <img src="../../assets/img/comp-inter.svg" alt="" class="invertFilter">
+                <div class="cover"></div>
+            </div>
         </div>
     </div>
 </div>

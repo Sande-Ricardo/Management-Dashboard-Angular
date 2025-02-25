@@ -89,4 +89,13 @@ export class PrincipalPageComponent implements OnInit {
   redirect(path: string) {
     this.router.navigate([path]);
   }
+
+
+  control:string = 'closed'
+  angle:string = 'zero'
+
+  changeControl(){
+    this.control = this.control == 'closed' ? 'open' : 'closed'
+    this.angle = this.angle == 'zero' ? 'inverted' : 'zero'
+  }
 }

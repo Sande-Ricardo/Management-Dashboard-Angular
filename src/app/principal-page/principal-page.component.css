@@ -79,7 +79,7 @@
 .control {
     /* background-color: aqua; */
     border-radius: .4rem;
-    padding: 0 .5rem 0 .5rem;
+    padding: 0 .5rem;
     position: absolute;
     display: inline-flex;
     width: min-content;
@@ -89,32 +89,66 @@
     align-items: center;
 }
 
+.c1{
+    /* transform: rotate(0deg); */
+    width: 1.3rem;
+    height: 1.3rem;
+    transform: rotateY(0deg);
+    transition: .5s ease-out;
+}
+.invertFilter{
+    filter: invert(1);
+}
+
 .subcont {
     /* background-color: blue; */
+    position: relative;
     background: linear-gradient(var (--primary), var (--third));
     display: inline-flex;
     /* justify-content: space-between; */
-    animation: expand .5s;
+    transform: scaleX(1);
+    transition: .5s ease-in-out;
+    /* animation: expand .5s; */
 }
 
 .logo {
     /* display:block; */
+    display: flex;
+    align-items: center;
     position: relative;
     width: 1.1rem;
+    height: 1.1rem;
     /* font-size: 16px; */
-    margin: 0 .3rem 0 .3rem;
+    margin: 0 .3rem;
     color: white;
     filter: drop-shadow(0 0rem .1rem rgb(0, 0, 0));
+    transition: .3s;
     /* background-color: rgb(2, 248, 248); */
 }
-.expandIcon{
-    background-image: url(../../assets/img/arrow.svg);
-    filter: invert(1);
+.logo:hover{
+    filter: drop-shadow(0 0rem .2rem white);
 }
 
+.zero{
+    transform: rotateY(0deg);
+}
+.inverted{
+    transform: rotateY(180deg);
+}
+
+.open{
+    transform: scaleX(1);
+    left: 0;
+    opacity: 1;
+}
+.closed{
+    transform: scaleX(0);
+    left: -45%;
+    opacity: 0;
+}
 .cover {
     display: none;
-    background-color: bisque;
+    /* background-color: bisque; */
     position: absolute;
     top: 0;
     width: 100%;

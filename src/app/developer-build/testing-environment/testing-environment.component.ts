@@ -13,5 +13,4 @@ export class TestingEnvironmentComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
 }
