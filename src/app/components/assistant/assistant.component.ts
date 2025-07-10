@@ -1,5 +1,6 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { LocalStorageService } from 'src/app/core/services/local-storage.service';
+import { AIService } from './ai.service';
 // import { GenerativeModel, GoogleGenerativeAI } from '@google/generative-ai';
 // import { GoogleGenerativeAI } from '@google/generative-ai';
 
@@ -14,8 +15,10 @@ import { LocalStorageService } from 'src/app/core/services/local-storage.service
 export class AssistantComponent implements OnInit {
 
   constructor(
-    private localStorageSv:LocalStorageService
-  ) { 
+    private localStorageSv:LocalStorageService,
+    private aiSv:AIService
+    
+  ) {
     this.questions = localStorageSv.getChatbotQuestions;
     this.answers = localStorageSv.getChatbotAnswers
   }
@@ -38,7 +41,10 @@ answers!:string[];
   async consult() {
     // const API_KEY = 'AIzaSyBZj-3belUwS6vehWUEwPuf-RDRWI4MbfY';
     // const API_KEY = 'AIzaSyBZj-3belUwS6vehWUEwPuf-RDRWI4MbsY';
-    const API_KEY = 'AIzaSyBZj-3belUwS6vehWUEwPuf-RDRWI4MbfY';
+    // const API_KEY = 'AIzaSyBZj-3belUwS6vehWUEwPuf-RDRWI4MbfY';
+    // const API_KEY = 'AIzaSyCRQab5wKer8B6QGXGotPiZiuny6LBdyVk';
+    const API_KEY = 'AIzaSyCYyGsImdbGazfZUIeQ-6zSX7JzaD7hmxU';
+
 
     // Acceder al GoogleGenerativeAI desde el objeto global "window"
     const GoogleGenerativeAI = (window as any).GoogleGenerativeAI;
@@ -72,5 +78,14 @@ answers!:string[];
     this.answers = [];
   }
 
+// BackendConsult (new format)
 
+  entry = '';
+  response = '';
+
+  send(){
+    this.aiSv.sendPrompt(this.entry).subscribe(response => {
+      this.response = response;
+    })
+  }
 }
