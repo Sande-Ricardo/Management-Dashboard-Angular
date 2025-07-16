@@ -43,29 +43,51 @@ answers!:string[];
     // const API_KEY = 'AIzaSyBZj-3belUwS6vehWUEwPuf-RDRWI4MbsY';
     // const API_KEY = 'AIzaSyBZj-3belUwS6vehWUEwPuf-RDRWI4MbfY';
     // const API_KEY = 'AIzaSyCRQab5wKer8B6QGXGotPiZiuny6LBdyVk';
-    const API_KEY = 'AIzaSyCYyGsImdbGazfZUIeQ-6zSX7JzaD7hmxU';
+    // const API_KEY = 'AIzaSyCYyGsImdbGazfZUIeQ-6zSX7JzaD7hmxU';
 
 
     // Acceder al GoogleGenerativeAI desde el objeto global "window"
-    const GoogleGenerativeAI = (window as any).GoogleGenerativeAI;
-    const genAI = new GoogleGenerativeAI(API_KEY);
+    // const GoogleGenerativeAI = (window as any).GoogleGenerativeAI;
+    // const genAI = new GoogleGenerativeAI(API_KEY);
 
-    const model = genAI.getGenerativeModel({
-      model: 'gemini-1.5-pro-latest',
-    });
+    // const model = genAI.getGenerativeModel({
+    //   model: 'gemini-1.5-pro-latest',
+    // });
+
+    // this.questions.push(this.inputText);
+
+    // try {
+    //   const result = await model.generateContent(this.inputText);
+    //   // this.responseText = result.response.text();
+    //   this.answers.push(result.response.text());
+    //   // console.log("try");
+    //   this.inputText = '';
+
+    //   this.localStorageSv.setChatbotQuestions = this.questions;
+    //   this.localStorageSv.setChatbotAnswers = this.answers;
+    // } catch (error) {
+    //   console.error('Error al generar contenido:', error);
+    //   // this.responseText = 'Error al generar contenido';
+    // }
 
     this.questions.push(this.inputText);
+    try{
+      this.aiSv.sendPrompt(this.inputText).subscribe(response => {
+          console.log("response", response);
+        
+          this.answers.push(response);
+          this.inputText = '';
 
-    try {
-      const result = await model.generateContent(this.inputText);
-      // this.responseText = result.response.text();
-      this.answers.push(result.response.text());
-      // console.log("try");
-      this.inputText = '';
-
-      this.localStorageSv.setChatbotQuestions = this.questions;
-      this.localStorageSv.setChatbotAnswers = this.answers;
+          this.localStorageSv.setChatbotQuestions = this.questions;
+          this.localStorageSv.setChatbotAnswers = this.answers;
+        
+          console.log("del");
+          
+        }
+      )
     } catch (error) {
+      console.log("del 2");
+      
       console.error('Error al generar contenido:', error);
       // this.responseText = 'Error al generar contenido';
     }
