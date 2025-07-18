@@ -2,6 +2,13 @@
     
     <span class="title">
         <h3 (dblclick)="cleanChatBot()">DeepSeek AI ChatBot</h3>
+        <div class="about">
+            !
+            <p [innerHTML]="assistantCredits"></p>
+            
+        </div>
+
+        
     </span>
     <div class="messages">
         <div class="subcontainer" *ngFor="let interaction of questions, let i = index">

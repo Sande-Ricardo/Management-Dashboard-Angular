@@ -80,7 +80,7 @@
     font-size: 1.2rem;
     margin: .8rem 0 .8rem 0;
     list-style-type: none;
-
+    cursor: pointer;
 }
 
 .itemSelected {
@@ -107,8 +107,22 @@
 .add {
     width: fit-content;
     position: fixed;
+    
+    font-weight: 600;
+    /* font-size: 1.5rem; */
+
+    border-radius: 50%;
+    border: 3px solid rgb(154, 154, 154);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 2rem;
+    height: 2rem;
     bottom: 1rem;
     right: 1rem;
+
 }
 
 

@@ -24,6 +24,61 @@
     cursor: pointer;
 }
 
+.about{
+    position: absolute;
+    display: flex;
+
+    right: .25rem;
+    top: .25rem;
+    width: 1rem;
+    height: 1rem;
+    
+    border: 1px solid var(--prm1);
+    border-radius: 50%;
+    
+    justify-content: center;
+    align-items: center;
+    
+    color: var(--prm1);
+    font-size: .7rem;
+    font-weight: 200;
+    
+    transition: ease-in .2s;
+}
+
+.about:hover{
+    width: 10rem;
+    height: 8rem;
+    /* opacity: 0; */
+    border-radius: .5rem;
+    border: none;
+    /* background-color: aqua; */
+    z-index: 1;
+}
+.about p{
+    position: absolute;
+    display: none;
+    top: 0;
+    right: 0;
+    width: 10rem;
+    height: auto;
+    padding: .2rem;
+    
+    border: 1px solid var(--prm5);
+    border-radius: .5rem;
+    background-color: var(--prm1);
+
+    font-weight: 200;
+    color: var(--prm5);
+    
+    /* transition: ease-in .3s; */
+}
+
+.about:hover p{
+    display: block;
+}
+
+
 .messages{
     position: relative;
     width: 100%;

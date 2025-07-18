@@ -37,6 +37,10 @@ inputText: string = '';
 questions!:string[];
 answers!:string[];
 
+assistantCredits:string = `Esta demo utiliza el modelo de lenguaje DeepSeek R1 a través de la API de <a href="https://openrouter.ai/">OpenRouter</a>.
+DeepSeek es un modelo de código abierto desarrollado por DeepSeek y distribuido bajo la licencia Apache 2.0.`;
+
+
 // ---------------------------------------- Methods ------------------------------------------------
   async consult() {
     // const API_KEY = 'AIzaSyBZj-3belUwS6vehWUEwPuf-RDRWI4MbfY';
@@ -73,7 +77,6 @@ answers!:string[];
     this.questions.push(this.inputText);
     try{
       this.aiSv.sendPrompt(this.inputText).subscribe(response => {
-          console.log("response", response);
         
           this.answers.push(response);
           this.inputText = '';
@@ -81,8 +84,6 @@ answers!:string[];
           this.localStorageSv.setChatbotQuestions = this.questions;
           this.localStorageSv.setChatbotAnswers = this.answers;
         
-          console.log("del");
-          
         }
       )
     } catch (error) {
@@ -110,4 +111,5 @@ answers!:string[];
       this.response = response;
     })
   }
+
 }

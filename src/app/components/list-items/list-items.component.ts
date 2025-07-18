@@ -58,6 +58,9 @@ export class ListItemsComponent implements OnInit {
     this.edit=!this.edit;
   }
 
+  // togglePanel(){
+
+  // }
   // ---------------------------------------------------------------------------
 
   

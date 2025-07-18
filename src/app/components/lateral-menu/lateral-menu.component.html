@@ -51,7 +51,7 @@
                                 <p *ngIf="i != sharingSv.headlineIndex" >{{headline.content}}</p>
                                 <p *ngIf="i == sharingSv.headlineIndex" class="itemSelected">{{headline.content}}</p>
                         </li>
-                        <li class="add" (click)="addHeadline()">Add Headline</li>
+                        <li class="add" (click)="addHeadline()" style="font-size: 1.8rem;">+</li>
                 </ul>
         </div>
         <span class="activate" [ngClass]="active2" (click)="activate()"><p>>></p></span>
