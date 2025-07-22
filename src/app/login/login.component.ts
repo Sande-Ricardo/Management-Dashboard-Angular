@@ -31,12 +31,13 @@ export class LoginComponent implements OnInit {
 
 
 
+  
+  // -----------------------------  Observables  ---------------------------------  usarlos para obtener la información de usuario y para identificar el estado de login (respectiamente)
+  login$:Observable<boolean>
+  //-------------------------------  Variables  ----------------------------------
   conditional1:boolean = true;
   signU_I:string = "Don't have an account yet?";
 
-// -----------------------------  Observables  ---------------------------------  usarlos para obtener la información de usuario y para identificar el estado de login (respectiamente)
-  login$:Observable<boolean>
-//-------------------------------  Variables  ----------------------------------
   log:boolean = false;
 
 
@@ -47,6 +48,7 @@ export class LoginComponent implements OnInit {
   errorEmailOrPassword:boolean = false;
   invalidShield:boolean = false;
   
+  visiblePassword:boolean = false;
 
 //--------------------------------  Methods  -----------------------------------
   signUpIn(){
@@ -78,14 +80,23 @@ export class LoginComponent implements OnInit {
   // Read
     
     login(form:NgForm){
+      this.errorEmailOrPassword = false;
+      this.invalidShield = false;
+
       if( !form.value.email || !form.value.password){
         console.error("invalid shield")
         this.invalidShield = true;
       } else {
-        this.invalidShield = false;
         const email=form.value.email;
         const password=form.value.password;
-        this.errorEmailOrPassword = this.loginSv.login(email,password);
+        
+        // temporary solution
+        let loginBool:boolean = this.loginSv.login(email,password);
+        setTimeout(() => {
+          this.errorEmailOrPassword = loginBool;}, 5000);
+
+        console.log(this.errorEmailOrPassword);
+        
       }
     };
 
@@ -96,5 +107,9 @@ export class LoginComponent implements OnInit {
       // console.log(this.localStorageSv.getUser)
     }
   
+
+    changeVisiblePassword(){
+      this.visiblePassword = !this.visiblePassword;
+    }
 
 }

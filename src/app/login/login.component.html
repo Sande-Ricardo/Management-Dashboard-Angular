@@ -7,7 +7,15 @@
             <p class="error" *ngIf="errorEmailOrPassword">Invalid email or password</p>
             <p class="error" *ngIf="invalidShield">Invalid shield</p>
             <input class="unit1" type="text" name="email"      placeholder="Email"    [(ngModel)]="usrn1">
-            <input class="unit1" type="text" name="password"   placeholder="Password"  [(ngModel)]="ctr1"  >
+            
+            <label class="visiblePass">
+                <input type="checkbox" name="visiblePass" [(ngModel)]="visiblePassword" (click)="changeVisiblePassword()">
+                Show password
+            </label>
+            
+            <input class="unit1" type="password" name="password"   placeholder="Password"  [(ngModel)]="ctr1"  *ngIf="!visiblePassword">
+            <input class="unit1" type="text" name="password"   placeholder="Password"  [(ngModel)]="ctr1"  *ngIf="visiblePassword">
+
             <div class="subOne">
                 <a class="sub1" href="/login">Forgot?</a>
                 <a class="sub1" href="">Change</a>
@@ -29,7 +37,15 @@
             <form class="cont2" #regis="ngForm" (ngSubmit)="register(regis)">
                 <input class="unit1" type="text" name="username"   placeholder="Username"  [(ngModel)]="usrn1" >
                 <input class="unit1" type="text" name="email"      placeholder="Email"     [(ngModel)]="eml1"  >
-                <input class="unit1" type="text" name="password"   placeholder="Password"  [(ngModel)]="ctr1"  >
+            
+                <label class="visiblePass">
+                    <input type="checkbox" name="visiblePass" [(ngModel)]="visiblePassword" (click)="changeVisiblePassword()">
+                    Show password
+                </label>
+                
+                <input class="unit1" type="password" name="password"   placeholder="Password"  [(ngModel)]="ctr1"  *ngIf="!visiblePassword">
+                <input class="unit1" type="text" name="password"   placeholder="Password"  [(ngModel)]="ctr1"  *ngIf="visiblePassword">
+
                 <!-- <input class="unit1" type="button" [value]=sign2> -->
                 <button class="unit1" type="submit">SIGN UP</button>
                 <div class="subOne">

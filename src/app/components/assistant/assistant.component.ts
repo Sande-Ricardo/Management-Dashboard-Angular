@@ -37,8 +37,12 @@ inputText: string = '';
 questions!:string[];
 answers!:string[];
 
-assistantCredits:string = `Esta demo utiliza el modelo de lenguaje DeepSeek R1 a través de la API de <a href="https://openrouter.ai/">OpenRouter</a>.
-DeepSeek es un modelo de código abierto desarrollado por DeepSeek y distribuido bajo la licencia Apache 2.0.`;
+assistantCredits:string =
+`This demo uses the DeepSeek R1 language model via the
+<a href="https://openrouter.ai/">OpenRouter</a> API.
+DeepSeek is an open-source model developed by
+<a href="https://huggingface.co/deepseek-ai">DeeoSeek</a>
+and distributed under the Apache 2.0 license.`;
 
 
 // ---------------------------------------- Methods ------------------------------------------------

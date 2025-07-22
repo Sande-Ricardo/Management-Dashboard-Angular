@@ -75,7 +75,7 @@
     color: var(--prm5);
     transition: ease .5s;
     list-style-type: none;
-    margin: 2px 0 2px 0;
+    margin: 2px 0 2px 0;cursor: pointer;
 }
 .menu > *:hover{
     background-color: var(--prm4);
