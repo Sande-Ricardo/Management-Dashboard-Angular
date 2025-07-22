@@ -8,9 +8,9 @@ import { Observable } from 'rxjs';
 export class AIService {
 
   // Local
-  private apiUrl = 'http://localhost:8080/ai/ask'
+  // private apiUrl = 'http://localhost:8080/ai/ask'
   // Production
-  // private apiUrl = 'https://m-dashboard-8hn2.onrender.com/ai/ask'
+  private apiUrl = 'https://m-dashboard-8hn2.onrender.com/ai/ask'
 
   constructor( private http:HttpClient ) { }
 
